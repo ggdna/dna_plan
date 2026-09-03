@@ -1,0 +1,11 @@
+{
+  // This package is a DNA layer: dna/ is hand-authored source and is the
+  // last layer of its own instantiation.
+  "version": 1,
+
+  // No parent DNA. This layer is orthogonal: it carries only its own topic
+  // and is combined with the other layers by dna_ggdna. It stays parent-less
+  // on purpose — the umbrella lists this layer, so a parent here would close
+  // a cycle, and a parent would reach every consumer of this topic.
+  "layers": []
+}

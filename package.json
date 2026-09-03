@@ -1,0 +1,41 @@
+{
+  "name": "@ggdna/dna-plan",
+  "version": "0.1.0",
+  "description": "DNA layer: planning guides and templates",
+  "keywords": [
+    "dna",
+    "helix",
+    "conventions",
+    "scaffolding"
+  ],
+  "homepage": "https://github.com/ggdna/dna_plan",
+  "bugs": "https://github.com/ggdna/dna_plan/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggdna/dna_plan.git"
+  },
+  "type": "module",
+  "files": [
+    "dna",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test:dart": "dart test",
+    "test": "pnpm run test:dart",
+    "prepublishOnly": "pnpm run test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "prettier": "^3.9.6"
+  }
+}
