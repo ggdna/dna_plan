@@ -1,6 +1,6 @@
 name: dna_plan
 description: "DNA layer: planning guides and templates"
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/ggdna/dna_plan.git
 
 environment:
