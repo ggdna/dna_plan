@@ -1,11 +1,11 @@
 # Changelog
 
-## Unreleased
+## 0.3.0 - 2026-09-14
 
 - Move the layers guide, the layer guides and the `/layers-*` skills to
-  the new `dna_design_layers` layer; `pm-repo-guide.md` only refers to them
+the new `dna_design_layers` layer; `pm-repo-guide.md` only refers to them
 - Blog posts go into `doc/blog/<yyyy>`, one folder per year, matching the
-  blog guide
+blog guide
 
 ## 0.2.0 - 2026-09-10
 

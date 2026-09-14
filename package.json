@@ -1,6 +1,6 @@
 {
   "name": "@ggdna/dna-plan",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "DNA layer: how a project is planned - the structure of a project management repo, its concepts, tickets and quarters, and where design results land",
   "keywords": [
     "dna",
