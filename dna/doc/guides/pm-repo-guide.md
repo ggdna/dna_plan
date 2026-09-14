@@ -35,7 +35,9 @@ root
 | | |-tickets
 | | | |-2026-09-10-cdm-1317-infrastructure-discovery-server.md
 | | |-bugs
-| | |-blog
+| |-blog
+| | |-2026
+| | | |-2026-09-10-blogpost-1.md
 |-README.md
 ```
 
