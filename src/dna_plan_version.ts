@@ -2,4 +2,4 @@
 // Kept in sync by test/dna_plan_version.test.ts.
 
 /** The version of the `@ggdna/dna-plan` package. */
-export const dnaPlanVersion = '0.2.0';
+export const dnaPlanVersion = '0.3.0';

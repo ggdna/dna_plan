@@ -1,12 +1,12 @@
 name: dna_plan
-description: "DNA layer: planning guides and templates"
-version: 0.2.0
+description: "DNA layer: how a project is planned - the structure of a project management repo, its concepts, tickets and quarters, and where design results land"
+version: 0.3.0
 repository: https://github.com/ggdna/dna_plan.git
 
 environment:
   sdk: ">=3.13.0 <4.0.0"
 
 dev_dependencies:
-  helix: ^1.7.0
+  helix: ^1.7.1
   lints: ^6.1.0
   test: ^1.32.0

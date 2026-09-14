@@ -1,7 +1,7 @@
 {
   "name": "@ggdna/dna-plan",
-  "version": "0.2.0",
-  "description": "DNA layer: planning guides and templates",
+  "version": "0.3.0",
+  "description": "DNA layer: how a project is planned - the structure of a project management repo, its concepts, tickets and quarters, and where design results land",
   "keywords": [
     "dna",
     "helix",
@@ -35,7 +35,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@types/node": "^26.5.0",
+    "@types/node": "^26.5.1",
     "prettier": "^3.9.6"
   }
 }
