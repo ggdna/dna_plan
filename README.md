@@ -8,15 +8,11 @@ repo and the seven layers of product design.
 - `doc/guides/pm-repo-guide.md` — how a project management (PM) repo is
   structured and how tickets and quarters are planned in it; `dna_gg`'s
   ticket workflow reads it when present
-- `doc/guides/layers-guide.md` — the layer system of product design and
-  how to use it
-- `doc/guides/layers/*-guide.md` — one short guide per layer plus the
-  orient audit
-- `.claude/skills/layers-*` — nine skills that load the matching guide
 
-The layer guides follow
-[layers-skills](https://github.com/jamiemill/layers-skills) by Jamie Mill
-(MIT).
+The guide plans with the seven layers of product design. Their guides and
+the `/layers-*` skills live in
+[dna_design_layers](https://github.com/ggdna/dna_design_layers); install
+both layers to get the whole picture.
 
 ## Layers
 

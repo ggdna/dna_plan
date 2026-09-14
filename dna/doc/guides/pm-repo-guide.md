@@ -71,8 +71,7 @@ root
 
 - Write a post only if the repo has the `dna_blog` layer; follow its blog
   guide for content and template
-- Put the post into `doc/<quarter>/blog` of the PM repo, not into a year
-  folder; the quarter folder replaces the year folder of the blog guide
+- Put the post into `doc/blog/<yyyy>` of the PM repo, one folder per year
 - Name it `<yyyy>-<mm>-<dd>-<title>.md`, title in English kebab case
 
 ## Name the files
@@ -86,8 +85,9 @@ root
 
 ## Use the design layers
 
-- Plan with the seven layers of product design, see the
-  [layers guide](layers-guide.md)
+- Plan with the seven layers of product design; the `dna_design_layers`
+  layer ships the [layers guide](layers-guide.md), one guide per layer and
+  the `/layers-*` skills
 - Run `/layers-orient` before planning a ticket that changes the product;
   it names the layer that needs attention first
 - Write the residue of each layer into the PM repo:
