@@ -5,7 +5,7 @@
       "name": "base",
       "package": "helix",
       "ecosystem": null,
-      "resolvedVersion": "1.7.1",
+      "resolvedVersion": "1.12.0",
       "via": null,
       "hash": "0x6883da335b415f9d"
     },
@@ -15,19 +15,19 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x78d3445b36b4f971"
+      "hash": "0x050c94df62fad03d"
     }
   ],
   "claude": {
     "claudeMdInclude": null,
     "claudeMdFromDna": false
   },
-  "baseVersion": "1.7.1",
+  "baseVersion": "1.12.0",
   "baseHash": "0x6883da335b415f9d",
   "instances": [
     {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x66a632935e525acf"
+      "hash": "0x8cd91066191b6005"
     }
   ]
 }
