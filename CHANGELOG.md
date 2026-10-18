@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.4.0 - 2026-10-18
+
 ## 0.3.0 - 2026-09-14
 
 - Move the layers guide, the layer guides and the `/layers-*` skills to
