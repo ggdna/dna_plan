@@ -6,8 +6,19 @@ repo and the seven layers of product design.
 ## What it ships
 
 - `doc/guides/pm-repo-guide.md` — how a project management (PM) repo is
-  structured and how tickets and quarters are planned in it; `dna_gg`'s
-  ticket workflow reads it when present
+  structured; how goals and requirements are kept across quarters; and how
+  tickets and quarters are planned in it. `dna_gg`'s ticket workflow reads
+  it when present
+- `doc/guides/requirements-guide.md` — how the requirements are engineered
+  together with the user, before any ticket
+- `doc/guides/schedule-guide.md` — how the requirements are cut into
+  tickets, estimated and drawn as a Gantt chart against a target date
+- `CLAUDE.md` — tells the AI to engineer the requirements first and to
+  offer a time plan; it lands in the managed block of the project's
+  `CLAUDE.md` next to the ones of the other layers (helix 1.13 or newer)
+- Skills: `/plan-intro` lists the planning skills and names the next
+  step, `/plan-requirements` runs the requirements engineering,
+  `/plan-schedule` the time plan
 
 The guide plans with the seven layers of product design. Their guides and
 the `/layers-*` skills live in
