@@ -7,6 +7,13 @@ quarters; the quarter folders keep concepts, architecture, tickets and bugs
 - Tell goals (why, for whom), requirements (what) and tickets (how) apart
 - Add templates for goal files and requirements with `req-<area>-<nnn>` IDs
 - Tickets list the requirements they fulfil and set them to `done`
+- Requirements carry a priority: `must`, `should` or `could`
+- Engineer the requirements interactively before any ticket: add the
+requirements guide and the `/plan-requirements` skill
+- Plan the time on demand: add the schedule guide and the `/plan-schedule`
+skill, which estimates the tickets and draws a Gantt chart in
+`doc/schedule.md`, optionally against a target date
+- Add a `CLAUDE.md` with the planning rules and the `/plan-intro` skill
 
 ## 0.4.0 - 2026-10-18
 
