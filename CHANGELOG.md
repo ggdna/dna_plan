@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Keep goals in `doc/goals` and requirements in `doc/requirements`, across
+quarters; the quarter folders keep concepts, architecture, tickets and bugs
+- Tell goals (why, for whom), requirements (what) and tickets (how) apart
+- Add templates for goal files and requirements with `req-<area>-<nnn>` IDs
+- Tickets list the requirements they fulfil and set them to `done`
+
 ## 0.4.0 - 2026-10-18
 
 ## 0.3.0 - 2026-09-14
