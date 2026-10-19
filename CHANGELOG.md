@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 - 2026-10-19
+
+- Goals can be `proposed` until the team confirms them
+
 ## 0.5.0 - 2026-10-19
 
 - Keep goals in `doc/goals` and requirements in `doc/requirements`, across
