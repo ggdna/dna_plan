@@ -6,8 +6,9 @@ repo and the seven layers of product design.
 ## What it ships
 
 - `doc/guides/pm-repo-guide.md` — how a project management (PM) repo is
-  structured and how tickets and quarters are planned in it; `dna_gg`'s
-  ticket workflow reads it when present
+  structured; how goals and requirements are kept across quarters; and how
+  tickets and quarters are planned in it. `dna_gg`'s ticket workflow reads
+  it when present
 
 The guide plans with the seven layers of product design. Their guides and
 the `/layers-*` skills live in
