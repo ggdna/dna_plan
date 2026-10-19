@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.5.0 - 2026-10-19
 
 - Keep goals in `doc/goals` and requirements in `doc/requirements`, across
 quarters; the quarter folders keep concepts, architecture, tickets and bugs
