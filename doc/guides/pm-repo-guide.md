@@ -11,10 +11,12 @@ found in the LICENSE file in the root of this package.
 ## Know what a PM repo is
 
 - A project management (PM) repo holds the goals, requirements, concepts,
-  plans, decisions and blog posts of a project — no code
+  plans, schedule, decisions and blog posts of a project — no code
 - Every ticket belongs to exactly one PM repo. Add it to the ticket before
   any code repo (see the `gg` development guide)
 - A ticket that is only planned ends with the PM repo alone
+- Requirements come before tickets: engineer them with the user first, see
+  [Engineer the requirements first](#engineer-the-requirements-first)
 
 ## Structure the repo like this
 
@@ -25,6 +27,7 @@ root
 | | |-results-without-desktop-software.md
 | |-requirements
 | | |-results.md
+| |-schedule.md
 | |-2026-Q3
 | | |-concepts
 | | | |-topics
@@ -50,6 +53,8 @@ root
   goal, kept across quarters, see below
 - `requirements` — what the product must do or be; one file per area,
   kept across quarters, see below
+- `schedule.md` — the time plan as a Gantt chart, kept across quarters;
+  optional, see [Plan the time](#plan-the-time)
 - `doc/<yyyy>-Q<n>` holds one folder per quarter; start a new one at the
   start of a quarter, do not move old files
 - `concepts` — what the product is and why, see below
@@ -114,6 +119,7 @@ root
 ## req-results-001: Result list right after the race
 
 - Status: accepted
+- Priority: must
 - Statement: The result list is ready two seconds after the last finisher
 - Why: [results without desktop software](../goals/results-without-desktop-software.md),
   topic `timing`
@@ -121,12 +127,26 @@ root
 ```
 
 - `Status` — `proposed`, `accepted`, `done` or `dropped`
+- `Priority` — `must`, `should` or `could`; what is not wanted at all is
+  `dropped`
 - `Statement` — one sentence on what the product must do or be, never how
 - `Why` — the goal it serves and the topic it comes from
 - `Acceptance` — the checks that prove it; one bullet per check if needed
 - Change a requirement in place and say what changed and when; a requirement
   that is replaced is set to `dropped` and links its successor
 - A broken `done` requirement is a bug, not a new requirement
+
+## Engineer the requirements first
+
+- Find the goals and requirements together with the user, one question at
+  a time and with proposals: the
+  [requirements guide](requirements-guide.md) says how, `/plan-requirements`
+  runs it
+- Do it before the first ticket, whenever `doc/requirements` is empty, and
+  whenever the work of a ticket is not covered by an accepted requirement
+- Plan and create tickets only after that. Bug tickets are the exception:
+  they name their bug file instead
+- `/plan-intro` lists the planning skills and says which one comes next
 
 ## Fill the concepts folder
 
@@ -193,8 +213,9 @@ root
 Set the goal: one paragraph on what is achieved and for whom, and which
 goal of the project it serves.
 
-List the requirements the ticket fulfils by ID. Add or change requirements
-first when the ticket needs one that does not exist yet.
+List the requirements the ticket fulfils by ID. If no accepted requirement
+covers the work, stop and engineer the requirements with the user first,
+see [Engineer the requirements first](#engineer-the-requirements-first).
 
 Name the affected repos and what changes in each one.
 
@@ -235,8 +256,19 @@ Let the user review the plan and revise it until they confirm it.
 - Move answered questions from `Open questions` into the plan or into a
   decision file
 - Set the requirements the ticket fulfilled to `done` when it is finished
+- Mark the ticket `done` in `doc/schedule.md`, if the project has one
 - Reference the plan from the blog post that closes the ticket
 - Keep the file: the plan documents why things are the way they are
+
+## Plan the time
+
+- A time plan is optional; make one when the user wants it or names a
+  target date for the project
+- The [schedule guide](schedule-guide.md) says how, `/plan-schedule` runs
+  it: it asks for the target date and the capacity, cuts the accepted
+  requirements into tickets, estimates each one and draws the plan as a
+  Gantt chart in `doc/schedule.md`
+- Plan the time only on accepted requirements
 
 ## Plan a quarter
 
@@ -244,11 +276,14 @@ Choose the goals the quarter works on: add new ones to `doc/goals`, add
 the quarter to the status of goals carried over, and set goals to
 `reached` or `dropped` when they are.
 
-Derive the requirements from the goals and the topics; add new ones and
-change the ones the goals change.
+Derive the requirements from the goals and the topics together with the
+user; add new ones and change the ones the goals change.
 
 Update `architecture/architecture.md` when a goal changes the target
 picture.
 
 Derive tickets from the requirements; each ticket names the goal it serves
 and the requirements it fulfils.
+
+Update `doc/schedule.md`, if the project has one, and check the forecast
+against the target date.

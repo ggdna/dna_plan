@@ -15,19 +15,39 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x099872219ded6ed7"
+      "hash": "0xa93bd0bf1acd2043"
     }
   ],
   "claude": {
     "claudeMdInclude": null,
-    "claudeMdFromDna": false
+    "claudeMdFromDna": true
   },
   "baseVersion": "1.12.0",
   "baseHash": "0x6883da335b415f9d",
   "instances": [
     {
+      "path": ".claude/skills/plan-intro/SKILL.md",
+      "hash": "0x65225183ce93e2cc"
+    },
+    {
+      "path": ".claude/skills/plan-requirements/SKILL.md",
+      "hash": "0x49c13077aaea5d83"
+    },
+    {
+      "path": ".claude/skills/plan-schedule/SKILL.md",
+      "hash": "0xa1221150dc0be4d6"
+    },
+    {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x2e55cb471e67e5d2"
+      "hash": "0x4107a028cbf84fc6"
+    },
+    {
+      "path": "doc/guides/requirements-guide.md",
+      "hash": "0x48b21d556f927b0a"
+    },
+    {
+      "path": "doc/guides/schedule-guide.md",
+      "hash": "0x03cd322393ddfe8d"
     }
   ]
 }
