@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.0 - 2026-10-20
+
+- Write PM repos in English, plus a German copy under `doc/de` when the
+repo has the translate guide of `dna_translate`
+- Keep the team in `doc/team`: `people.md` with first names, areas, roles,
+days per week and Jira account; `roles.md` with what each role hears about
+- Keep one report per person and quarter in `doc/reports/<yyyy>-Q<n>`, as
+points to tick once communicated; add the report guide and `/plan-report`,
+which collects the points and carries open ones into the next quarter
+- Export the next tickets of one person, one sprint's worth, as a CSV file
+for Jira; add the Jira export guide and `/plan-jira-export`
+- `/plan-intro` and `CLAUDE.md` name the new skills and the language rule
+
 ## 0.5.1 - 2026-10-19
 
 - Goals can be `proposed` until the team confirms them
