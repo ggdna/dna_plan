@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.6.0 - 2026-10-20
 
 - Write PM repos in English, plus a German copy under `doc/de` when the
 repo has the translate guide of `dna_translate`

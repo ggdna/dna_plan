@@ -1,6 +1,6 @@
 name: dna_plan
 description: "DNA layer: how a project is planned - the structure of a project management repo, its goals, requirements, team, reports, tickets, Jira export and quarters"
-version: 0.5.1
+version: 0.6.0
 repository: https://github.com/ggdna/dna_plan.git
 
 environment:
