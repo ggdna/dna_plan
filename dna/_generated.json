@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x446f78e7872193bf"
+      "hash": "0x362e15142694f95f"
     }
   ],
   "claude": {
@@ -27,7 +27,15 @@
   "instances": [
     {
       "path": ".claude/skills/plan-intro/SKILL.md",
-      "hash": "0x65225183ce93e2cc"
+      "hash": "0x9abbf1836d0f25e7"
+    },
+    {
+      "path": ".claude/skills/plan-jira-export/SKILL.md",
+      "hash": "0xd4d69717a1fb57af"
+    },
+    {
+      "path": ".claude/skills/plan-report/SKILL.md",
+      "hash": "0x12871153a93da34c"
     },
     {
       "path": ".claude/skills/plan-requirements/SKILL.md",
@@ -38,16 +46,24 @@
       "hash": "0xa1221150dc0be4d6"
     },
     {
+      "path": "doc/guides/jira-export-guide.md",
+      "hash": "0x3f6c674f72a88c20"
+    },
+    {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x7a39f731f44bb4ac"
+      "hash": "0x109f62f86ccdbd90"
+    },
+    {
+      "path": "doc/guides/report-guide.md",
+      "hash": "0x67454035a0ae0814"
     },
     {
       "path": "doc/guides/requirements-guide.md",
-      "hash": "0x37887352f57655a2"
+      "hash": "0x81e987e05affdd3e"
     },
     {
       "path": "doc/guides/schedule-guide.md",
-      "hash": "0x03cd322393ddfe8d"
+      "hash": "0x6184f9bb8af80ec6"
     }
   ]
 }
