@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.7.0 - 2026-10-21
+
 ## 0.6.2 - 2026-10-21
 
 - Fit the Jira export to Jira Data Center and Server: the user name as

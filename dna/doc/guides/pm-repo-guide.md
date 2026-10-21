@@ -52,6 +52,11 @@ root
 | | | |-anna.md
 | |-exports
 | | |-2026-09-10-anna-sprint.csv
+| |-prompts
+| | |-README.md
+| | |-anna                 (on the branch prompts)
+| | | |-2026-09
+| | | | |-2026-09-10_timing_app_3f2a91c0.md
 | |-blog
 | | |-2026
 | | | |-2026-09-10-blogpost-1.md
@@ -83,6 +88,9 @@ root
   them, see [Report to the people](#report-to-the-people)
 - `exports` — CSV files of tickets for Jira, see
   [Export tickets to Jira](#export-tickets-to-jira)
+- `prompts` — the prompts the people wrote to Claude Code, one file per
+  session, on the branch `prompts`; on the main branch only its
+  `README.md`, see [Keep the prompts](#keep-the-prompts)
 - `blog` — one post per finished ticket; exists only if the repo has
   `doc/guides/blog-guide.md` from the `dna_blog` layer, see below
 - `de` and `README.de.md` — the German copy; exist only if the repo keeps
@@ -188,6 +196,7 @@ root
 - Areas: result list, import of race data, the `timing_app` repo
 - Days per week: 4
 - Jira: anna
+- Git: anna@example.com
 ```
 
 - The section title is the first name; the file names of the person use
@@ -198,6 +207,9 @@ root
 - `Jira` — the name Jira knows the person by: the user name on Jira Data
   Center or Server, e.g. `anna`, the e-mail address on Jira Cloud;
   optional
+- `Git` — the e-mail addresses the person commits with, separated by
+  commas. The prompts of the person are filed under their first name by
+  them, see [Keep the prompts](#keep-the-prompts)
 - `Sprint length` — once, at the top; default two weeks
 - `Hours per day` — once, at the top: the working hours of one day, used
   to turn estimates in days into hours; default 8
@@ -226,7 +238,7 @@ root
 - Ask the user for the team before the first report or export; never
   guess people or roles
 - Keep only first names, areas and roles in `doc/team`; no contact data
-  besides the Jira account
+  besides the Jira account and the git e-mail addresses
 
 ## Fill the concepts folder
 
@@ -285,8 +297,8 @@ root
   both copies stay readable for tools
 - Keep both copies equal in content and structure; a ticked point in a
   report is ticked in both
-- Do not translate the guides, the templates or the CSV exports; the
-  guides come from the DNA layers
+- Do not translate the guides, the templates, the CSV exports or the
+  prompts; the guides come from the DNA layers
 
 ## Report to the people
 
@@ -306,6 +318,27 @@ root
   key to the person by their areas, fills one sprint by the estimates and
   writes the file
 - The person is assigned at export time only, never in the ticket file
+
+## Keep the prompts
+
+- Every prompt the people write to Claude Code in a repo of the project
+  lands here, on the branch `prompts`:
+  `doc/prompts/<name>/<yyyy>-<mm>/<yyyy>-<mm>-<dd>_<repo>_<session>.md`,
+  one file per session, the time of each prompt as its heading
+- The `dna_gg` layer does it: a Claude Code hook in every repo whose
+  variable `dnaPmRepo` names this repo. The hook commits to the branch
+  `prompts` directly, so the main branch and its checks stay untouched
+- The name is the first name in `doc/team/people.md` whose `Git` line
+  lists the e-mail the session's repo commits with. An e-mail that is not
+  listed goes to `doc/prompts/_unknown`; add it to `people.md`, the next
+  sessions are filed under the name
+- Only prompts are kept, never the answers. Tokens and passwords are
+  replaced by `[redacted]` before they leave the computer
+- Never edit, move or delete the prompt files, and never merge the branch
+  `prompts` into the main branch. Read them with
+  `git fetch origin prompts` and `git show origin/prompts:<path>`
+- On the main branch, `doc/prompts/README.md` says where the prompts are,
+  in German in `doc/de/prompts/README.md`
 
 ## Use the design layers
 

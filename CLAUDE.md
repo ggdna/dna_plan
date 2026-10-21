@@ -21,6 +21,8 @@ planning rules are in `doc/guides/pm-repo-guide.md`. When you plan in one:
 - The people and their roles are in `doc/team`. When the user asks what to
   tell someone, offer `/plan-report`; when they want tickets in Jira or
   plan the next sprint of a person, offer `/plan-jira-export`
+- The prompts of the people are kept on the branch `prompts` under
+  `doc/prompts`. Never edit them and never merge that branch into main
 
 `/plan-intro` lists the planning skills and says which one comes next.
 

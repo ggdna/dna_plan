@@ -27,7 +27,10 @@ repo and the seven layers of product design.
 
 A PM repo is written in English; with the `dna_translate` layer it keeps a
 German copy of every file under `doc/de`. The team — people, their areas
-and roles — lives in `doc/team`.
+and roles — lives in `doc/team`. The prompts the people write to Claude
+Code are kept on the branch `prompts` under `doc/prompts`; the hook that
+writes them comes from [dna_gg](https://github.com/ggsuite/dna_gg), the
+guide says how they are filed.
 
 The guide plans with the seven layers of product design. Their guides and
 the `/layers-*` skills live in
