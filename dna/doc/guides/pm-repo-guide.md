@@ -181,12 +181,13 @@ root
 # People
 
 - Sprint length: 2 weeks
+- Hours per day: 8
 
 ## Anna
 
 - Areas: result list, import of race data, the `timing_app` repo
 - Days per week: 4
-- Jira: anna@example.com
+- Jira: anna
 ```
 
 - The section title is the first name; the file names of the person use
@@ -194,8 +195,12 @@ root
 - `Areas` — what the person takes care of: features, topics, repos. The
   Jira export matches tickets to people by them
 - `Days per week` — how much of the week the person works on the project
-- `Jira` — the account Jira knows the person by; optional
+- `Jira` — the name Jira knows the person by: the user name on Jira Data
+  Center or Server, e.g. `anna`, the e-mail address on Jira Cloud;
+  optional
 - `Sprint length` — once, at the top; default two weeks
+- `Hours per day` — once, at the top: the working hours of one day, used
+  to turn estimates in days into hours; default 8
 - Write down the roles in `doc/team/roles.md`, one section per role. Start
   with Developer, Product Owner, Management, Sales and Customer, and add
   the ones the project needs:

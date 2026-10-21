@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.2 - 2026-10-21
+
+- Fit the Jira export to Jira Data Center and Server: the user name as
+assignee (the e-mail address only on Jira Cloud), the priority names of the
+project, an optional `Sprint` column with the sprint ID, wiki markup in the
+description, UTF-8 without BOM and the right import steps, with the warning
+not to map the description values
+- Turn estimates into seconds with the team's hours per day, a new field at
+the top of `doc/team/people.md`; one `Labels` column per label
+
 ## 0.6.1 - 2026-10-21
 
 - Keep who has which role only in `doc/team/roles.md`; `people.md` lists

@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x81781fe5eadedcb7"
+      "hash": "0xfed4541bc1745977"
     }
   ],
   "claude": {
@@ -31,7 +31,7 @@
     },
     {
       "path": ".claude/skills/plan-jira-export/SKILL.md",
-      "hash": "0xd4d69717a1fb57af"
+      "hash": "0x4d1a1f22434f00fd"
     },
     {
       "path": ".claude/skills/plan-report/SKILL.md",
@@ -47,11 +47,11 @@
     },
     {
       "path": "doc/guides/jira-export-guide.md",
-      "hash": "0x3f6c674f72a88c20"
+      "hash": "0x344403f04fc568a8"
     },
     {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x8ebb8a4a1ea9d9cb"
+      "hash": "0x0a3a1b6fe65669b1"
     },
     {
       "path": "doc/guides/report-guide.md",

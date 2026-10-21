@@ -30,8 +30,20 @@ Ask one question at a time and propose a default each time:
 - Sprint length — default: the one in `doc/team/people.md`, else two weeks
 - Capacity — default: the sprint length times the person's days per week;
   minus holidays, vacations and other work the user names
-- Jira account of the person — default: the `Jira` field in
-  `doc/team/people.md`; ask when it is missing
+- Jira name of the person — default: the `Jira` field in
+  `doc/team/people.md`; ask when it is missing. It is the user name on
+  Jira Data Center or Server, the e-mail address on Jira Cloud
+- Jira — Data Center or Server, or Cloud; default: Data Center
+- Jira project — the key the issues go to; default: the prefix of the
+  ticket keys the repo already uses
+- Priorities — the names the project offers; default: `High`, `Normal`
+  and `Low`. Take the names exactly as Jira writes them, spaces included
+- Sprint — a sprint the issues go into, by its numeric ID; default: none
+- Hours per day — default: the one in `doc/team/people.md`, else 8
+
+If a Jira connection is available, e.g. the Atlassian MCP server, read
+the user names, issue types, priorities and sprints of the project from
+it instead of asking for them.
 
 ## Find the open tickets
 
@@ -74,31 +86,50 @@ Ask one question at a time and propose a default each time:
 Use these columns, in this order:
 
 ```csv
-Summary,Issue Type,Priority,Assignee,Labels,Original Estimate,Description
-"Import race data",Story,High,anna@example.com,results-without-desktop-software,158400,"Goal: ...
+Summary,Issue Type,Priority,Assignee,Labels,Original Estimate,Sprint,Description
+"Import race data",Story,High,anna,results-without-desktop-software,158400,1840,"Goal: ...
 Requirements: req-results-002
 Steps:
-- ...
-Plan: doc/2026-Q4/tickets/2026-11-02-import-race-data.md"
+* ...
+Plan: {{doc/2026-Q4/tickets/2026-11-02-import-race-data.md}}"
 ```
 
 - `Summary` — the ticket title in words, not in kebab case
-- `Issue Type` — `Story`; `Bug` for a bug ticket
+- `Issue Type` — `Story`; `Bug` for a bug ticket. Both must exist in the
+  project
 - `Priority` — from the highest priority of its requirements: `must` →
-  `High`, `should` → `Medium`, `could` → `Low`
-- `Assignee` — the Jira account of the person
-- `Labels` — the goal the ticket serves, in kebab case; several labels
-  separated by spaces
-- `Original Estimate` — the expected duration in seconds, eight hours per
-  working day: 5.5 days → `158400`
+  the high one, `should` → the middle one, `could` → the low one of the
+  names agreed above
+- `Assignee` — the Jira name of the person
+- `Labels` — the goal the ticket serves, in kebab case without spaces.
+  For a second label add another column, also headed `Labels`
+- `Original Estimate` — the expected duration in whole seconds: days ×
+  hours per day × 3600. With 8 hours, 5.5 days → `158400`; with 7.5
+  hours → `148500`. Jira shows it in its own length of a working day
+- `Sprint` — the numeric sprint ID, never the name; leave the column out
+  without a sprint
 - `Description` — the goal, the requirements by ID, the steps and the
   path of the plan file; without a plan file, the line of
-  `doc/schedule.md`
-- Encode in UTF-8, separate by commas, end lines with `\n`; quote every
-  field that holds a comma, a quote or a line break, and double the
-  quotes inside it
-- Tell the user how to import it: Jira → Issues → Import issues from CSV,
-  and map the columns of the same name
+  `doc/schedule.md`. Jira Data Center and Server render wiki markup:
+  write list items as `* `, and put paths, file names and IDs with `_`
+  or braces into `{{…}}`
+- Leave out `Issue Key`: with it Jira would update existing issues
+- Encode in UTF-8 without BOM, separate by commas, end lines with `\n`;
+  quote every field that holds a comma, a quote or a line break, and
+  double the quotes inside it; give every row the same number of fields
+
+## Tell the user how to import it
+
+- Jira Data Center or Server: Issues → Import Issues from CSV; it needs
+  the permissions to create issues and to bulk change
+- Jira Cloud: Filters → Search work items → ••• → Import work items from
+  CSV; at most 250 work items per file
+- Choose the project, the encoding UTF-8 and the comma as separator
+- Map each column to the field of the same name
+- Tick "Map field value" for `Priority`, `Issue Type` and `Assignee` only
+  when their values differ from the names in Jira; never for
+  `Description`, or Jira drops its line breaks
+- Validate first, then import
 
 ## Take the keys back
 
