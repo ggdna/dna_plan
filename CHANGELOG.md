@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.6.2 - 2026-10-21
 
 - Fit the Jira export to Jira Data Center and Server: the user name as
 assignee (the e-mail address only on Jira Cloud), the priority names of the
