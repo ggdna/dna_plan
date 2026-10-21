@@ -185,7 +185,6 @@ root
 ## Anna
 
 - Areas: result list, import of race data, the `timing_app` repo
-- Roles: Developer, Product Owner
 - Days per week: 4
 - Jira: anna@example.com
 ```
@@ -194,7 +193,6 @@ root
   it in lower case kebab case: `anna`
 - `Areas` — what the person takes care of: features, topics, repos. The
   Jira export matches tickets to people by them
-- `Roles` — one or more of `doc/team/roles.md`
 - `Days per week` — how much of the week the person works on the project
 - `Jira` — the account Jira knows the person by; optional
 - `Sprint length` — once, at the top; default two weeks
@@ -212,14 +210,18 @@ root
 - Hears about: goals, requirements, decisions, schedule shifts
 ```
 
+- `People` — the first names of `doc/team/people.md` who have the role.
+  This is the only place that says who has which role; `people.md` does
+  not repeat it
 - `Hears about` decides what lands in the reports of the people in that
   role. Customers and sales hear about outcomes and dates, never about
   internals such as code, open decisions or estimates
-- One person may have several roles; their report covers all of them
+- One person may have several roles, so may be listed under several of
+  them; their report covers all of them
 - Ask the user for the team before the first report or export; never
   guess people or roles
-- Keep only first names, areas and roles here; no contact data besides
-  the Jira account
+- Keep only first names, areas and roles in `doc/team`; no contact data
+  besides the Jira account
 
 ## Fill the concepts folder
 
