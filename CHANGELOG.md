@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Keep who has which role only in `doc/team/roles.md`; `people.md` lists
+first names, areas, days per week and the Jira account, without roles
+- Reports take the roles of a person from `roles.md` and treat moves,
+renames, translations and reformatting as no news; points are dated by the
+file, not by the commit
+
 ## 0.6.0 - 2026-10-20
 
 - Write PM repos in English, plus a German copy under `doc/de` when the
