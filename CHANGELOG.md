@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.6.1 - 2026-10-21
 
 - Keep who has which role only in `doc/team/roles.md`; `people.md` lists
 first names, areas, days per week and the Jira account, without roles
