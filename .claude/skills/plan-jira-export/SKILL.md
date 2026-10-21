@@ -12,6 +12,9 @@ and work by it.
 
 - The person is required; ask for it if the user did not name one
 - Export only tickets without a Jira key, and only one sprint's worth
+- Use user names, issue types, priorities and sprint IDs exactly as the
+  Jira project has them; read them from a Jira connection if one is
+  available, else ask
 - Show the matching and the sprint before writing the CSV
 - Never write the person into a ticket file
 - Write the Jira keys back only when the user asks for it after the import
