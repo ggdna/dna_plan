@@ -35,9 +35,13 @@ communicated.
   - tickets that were planned or finished, and their blog posts
   - shifts in `doc/schedule.md`: a later forecast, a missed or moved
     target date
-- Keep only what the person needs: what their roles hear about, as
-  `doc/team/roles.md` says, and what touches their areas in
-  `doc/team/people.md`
+- Report what happened, not what was filed: moves, renames, translations
+  and reformatting are no news. Date each point by the file — the status
+  line, the ticket date, the history — not by the commit that touched it,
+  and leave out what happened before the start date
+- Find the roles of the person in `doc/team/roles.md`: every role whose
+  `People` lists them. Keep only what the person needs: what those roles
+  hear about, and what touches their areas in `doc/team/people.md`
 - Write each point as one sentence the person understands without the
   repo: what changed and what it means for them. Link the file it comes
   from
@@ -50,7 +54,7 @@ Use this template:
 ```markdown
 # Report for Anna — 2026-Q4
 
-- Roles: Product Owner, Management
+- Roles: see [roles](../../team/roles.md)
 - Tick a point once it is communicated
 
 ## Carried over from 2026-Q3
