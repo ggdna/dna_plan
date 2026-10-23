@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x035d4eaa7ecdcf08"
+      "hash": "0x837a9d9aff97b77b"
     }
   ],
   "claude": {
@@ -26,24 +26,24 @@
   "baseHash": "0x6883da335b415f9d",
   "instances": [
     {
-      "path": ".claude/skills/plan-intro/SKILL.md",
-      "hash": "0x9abbf1836d0f25e7"
+      "path": ".claude/skills/gg-plan-intro/SKILL.md",
+      "hash": "0x46a35e27e503c73f"
     },
     {
-      "path": ".claude/skills/plan-jira-export/SKILL.md",
-      "hash": "0x4d1a1f22434f00fd"
+      "path": ".claude/skills/gg-plan-jira-export/SKILL.md",
+      "hash": "0x9c87e9734944e899"
     },
     {
-      "path": ".claude/skills/plan-report/SKILL.md",
-      "hash": "0x12871153a93da34c"
+      "path": ".claude/skills/gg-plan-report/SKILL.md",
+      "hash": "0xa8aef22c24f39cee"
     },
     {
-      "path": ".claude/skills/plan-requirements/SKILL.md",
-      "hash": "0x49c13077aaea5d83"
+      "path": ".claude/skills/gg-plan-requirements/SKILL.md",
+      "hash": "0x60b17bb8e4d45d84"
     },
     {
-      "path": ".claude/skills/plan-schedule/SKILL.md",
-      "hash": "0xa1221150dc0be4d6"
+      "path": ".claude/skills/gg-plan-schedule/SKILL.md",
+      "hash": "0xd657b728367ec670"
     },
     {
       "path": "doc/guides/jira-export-guide.md",
@@ -51,7 +51,7 @@
     },
     {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x1fb86afbd075ea26"
+      "hash": "0xdb77877a21708462"
     },
     {
       "path": "doc/guides/report-guide.md",
@@ -59,11 +59,11 @@
     },
     {
       "path": "doc/guides/requirements-guide.md",
-      "hash": "0x81e987e05affdd3e"
+      "hash": "0x61a5b7f629047b63"
     },
     {
       "path": "doc/guides/schedule-guide.md",
-      "hash": "0x6184f9bb8af80ec6"
+      "hash": "0xa7819093c5db1df9"
     }
   ]
 }
