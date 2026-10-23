@@ -20,10 +20,10 @@ repo and the seven layers of product design.
   in `doc/reports`, with points to tick once they are communicated
 - `doc/guides/jira-export-guide.md` — how the next tickets of one person,
   one sprint's worth, are exported as a CSV file for Jira
-- Skills: `/plan-intro` lists the planning skills and names the next
-  step, `/plan-requirements` runs the requirements engineering,
-  `/plan-schedule` the time plan, `/plan-report` the reports and
-  `/plan-jira-export` the Jira export
+- Skills: `/gg-plan-intro` lists the planning skills and names the next
+  step, `/gg-plan-requirements` runs the requirements engineering,
+  `/gg-plan-schedule` the time plan, `/gg-plan-report` the reports and
+  `/gg-plan-jira-export` the Jira export
 
 A PM repo is written in English; with the `dna_translate` layer it keeps a
 German copy of every file under `doc/de`. The team — people, their areas

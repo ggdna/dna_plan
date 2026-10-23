@@ -1,0 +1,34 @@
+// @license
+// Copyright (c) ggdna
+//
+// Use of this source code is governed by terms that can be
+// found in the LICENSE file in the root of this package.
+
+{
+  // The package name, as declared in pubspec.yaml / package.json.
+  "name": "dna_plan",
+
+  // 1-2 sentence summary about this repo.
+  "summary": "DNA layer for planning in a project management repo: guides and /gg-plan-* skills. pub dna_plan, npm @ggdna/dna-plan.",
+
+  // 1-3 bullet points: the problem space.
+  "domain": [
+    "project management repo: structure, goals, requirements, team, quarters",
+    "requirements engineering, time plan with Gantt chart",
+    "quarterly reports per person, Jira CSV export",
+  ],
+
+  // The repos this one depends on and the repos depending on it.
+  // Keep the reason or the API behind each entry, not just the name.
+  "interfaces": {
+    // "<repo-a>": "why / API"
+    "uses": {
+      "helix": "DNA engine: instantiates dna/, runDnaTest",
+    },
+
+    // "<repo-b>": "why / API"
+    "usedBy": {
+      "project management repos": "layer, e.g. rljson/pm",
+    },
+  },
+}
