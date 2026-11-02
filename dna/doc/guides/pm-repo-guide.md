@@ -196,7 +196,7 @@ root
 - Areas: result list, import of race data, the `timing_app` repo
 - Days per week: 4
 - Jira: anna
-- Git: anna@example.com
+- Git: amuster
 ```
 
 - The section title is the first name; the file names of the person use
@@ -205,11 +205,13 @@ root
   Jira export matches tickets to people by them
 - `Days per week` — how much of the week the person works on the project
 - `Jira` — the name Jira knows the person by: the user name on Jira Data
-  Center or Server, e.g. `anna`, the e-mail address on Jira Cloud;
+  Center or Server, e.g. `anna`, the Atlassian account ID on Jira Cloud;
   optional
-- `Git` — the e-mail addresses the person commits with, separated by
-  commas. The prompts of the person are filed under their first name by
-  them, see [Keep the prompts](#keep-the-prompts)
+- `Git` — the git user names the person commits with
+  (`git config user.name`), separated by commas; optional. Needed only
+  when the git user name neither is the first name nor starts with it,
+  e.g. `amuster`. The prompts of the person are filed under their first
+  name by it, see [Keep the prompts](#keep-the-prompts)
 - `Sprint length` — once, at the top; default two weeks
 - `Hours per day` — once, at the top: the working hours of one day, used
   to turn estimates in days into hours; default 8
@@ -237,8 +239,11 @@ root
   them; their report covers all of them
 - Ask the user for the team before the first report or export; never
   guess people or roles
-- Keep only first names, areas and roles in `doc/team`; no contact data
-  besides the Jira account and the git e-mail addresses
+- Keep only first names, areas and roles in `doc/team`, besides the Jira
+  account and the git user names; no contact data
+- Never ask for e-mail addresses and never write one into the PM repo,
+  neither in `doc/team` nor anywhere else. When the user offers one, ask
+  for the git user name or the Jira account instead
 
 ## Fill the concepts folder
 
@@ -328,10 +333,12 @@ root
 - The `dna_gg` layer does it: a Claude Code hook in every repo whose
   variable `dnaPmRepo` names this repo. The hook commits to the branch
   `prompts` directly, so the main branch and its checks stay untouched
-- The name is the first name in `doc/team/people.md` whose `Git` line
-  lists the e-mail the session's repo commits with. An e-mail that is not
-  listed goes to `doc/prompts/_unknown`; add it to `people.md`, the next
-  sessions are filed under the name
+- The name is the first name in `doc/team/people.md` that the git user
+  name of the session's repo is, or starts with, or whose `Git` line
+  lists it. A git user name that matches nobody goes to
+  `doc/prompts/_unknown`; add it to the `Git` line of the person, the
+  next sessions are filed under the name
+- No e-mail address is read or kept: the hook commits as `pm-prompts`
 - Only prompts are kept, never the answers. Tokens and passwords are
   replaced by `[redacted]` before they leave the computer
 - Never edit, move or delete the prompt files, and never merge the branch
