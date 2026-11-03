@@ -32,7 +32,8 @@ Ask one question at a time and propose a default each time:
   minus holidays, vacations and other work the user names
 - Jira name of the person — default: the `Jira` field in
   `doc/team/people.md`; ask when it is missing. It is the user name on
-  Jira Data Center or Server, the e-mail address on Jira Cloud
+  Jira Data Center or Server, the Atlassian account ID on Jira Cloud: the
+  long ID at the end of the profile URL. Never ask for an e-mail address
 - Jira — Data Center or Server, or Cloud; default: Data Center
 - Jira project — the key the issues go to; default: the prefix of the
   ticket keys the repo already uses
