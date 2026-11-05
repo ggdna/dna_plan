@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x95575dd4a3874532"
+      "hash": "0x843a94952e6312dd"
     }
   ],
   "claude": {
@@ -55,7 +55,7 @@
     },
     {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x9e79a22ab17e74e0"
+      "hash": "0x9ffac2a2f70af45e"
     },
     {
       "path": "doc/guides/report-guide.md",
