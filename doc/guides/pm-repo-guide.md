@@ -383,6 +383,23 @@ List the rough steps in order; one line per step.
 
 Collect the open questions; decide them with the user before implementing.
 
+When the open questions are to be discussed in a meeting, such as a jour
+fixe, write them as a table with the solution proposals:
+
+```markdown
+| Open point | Proposals | Pros, cons, impact | Recommendation |
+| --- | --- | --- | --- |
+| Data store | 1) A 2) B | 1) + simple; − slow 2) + fast; → new job | 1) |
+```
+
+- Number the proposals: `1) … 2) …`
+- Give each proposal one short line in `Pros, cons, impact`, numbered like
+  the proposals: `+` what speaks for it, `−` what speaks against it, `→`
+  what it causes or implies
+- Explain the symbols in one sentence under the `## Open questions` heading
+- Questions that are decided with the user directly need no table; a list
+  is enough
+
 Link the goals, requirements, decisions and topics the plan rests on.
 
 Let the user review the plan and revise it until they confirm it.
@@ -406,6 +423,8 @@ Let the user review the plan and revise it until they confirm it.
 ## Open questions
 ```
 
+- Write the open questions as a table with `Pros, cons, impact` when they
+  are discussed in a meeting, see [Plan a ticket](#plan-a-ticket)
 - Keep the plan short; write more only for complex tickets
 - Wrap lines at 80 characters
 - Embed mermaid diagrams when a picture says more than text
