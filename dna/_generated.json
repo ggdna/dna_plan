@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x659fd5ea14087aed"
+      "hash": "0xa2af6f1178980d2e"
     }
   ],
   "claude": {
@@ -27,47 +27,47 @@
   "instances": [
     {
       "path": ".claude/CLAUDE_dna_plan.md",
-      "hash": "0xacc338ff5279c9cd"
+      "hash": "0x37b8e6e6a007cbbb"
     },
     {
       "path": ".claude/skills/gg-plan-intro/SKILL.md",
-      "hash": "0x46a35e27e503c73f"
+      "hash": "0xb0c85b3b1b19481d"
     },
     {
       "path": ".claude/skills/gg-plan-jira-export/SKILL.md",
-      "hash": "0x9c87e9734944e899"
+      "hash": "0x76f3576589371dbf"
     },
     {
       "path": ".claude/skills/gg-plan-report/SKILL.md",
-      "hash": "0xa8aef22c24f39cee"
+      "hash": "0xf382db9aa2788919"
     },
     {
       "path": ".claude/skills/gg-plan-requirements/SKILL.md",
-      "hash": "0x60b17bb8e4d45d84"
+      "hash": "0x7d8b3925649e33f6"
     },
     {
       "path": ".claude/skills/gg-plan-schedule/SKILL.md",
-      "hash": "0xd657b728367ec670"
+      "hash": "0xc1e4d3241259e21f"
     },
     {
       "path": "doc/guides/jira-export-guide.md",
-      "hash": "0x2e73883514cacb6a"
+      "hash": "0x11640767b50768fe"
     },
     {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x9e79a22ab17e74e0"
+      "hash": "0x254bd2c4b688bf9d"
     },
     {
       "path": "doc/guides/report-guide.md",
-      "hash": "0x4447bb29454bdab4"
+      "hash": "0xb70d317b3545e4d2"
     },
     {
       "path": "doc/guides/requirements-guide.md",
-      "hash": "0x61a5b7f629047b63"
+      "hash": "0xd5c8839dc3a913a1"
     },
     {
       "path": "doc/guides/schedule-guide.md",
-      "hash": "0xa7819093c5db1df9"
+      "hash": "0xd9b6da41ba2aa277"
     }
   ]
 }

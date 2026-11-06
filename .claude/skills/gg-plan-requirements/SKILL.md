@@ -1,6 +1,6 @@
 ---
 name: gg-plan-requirements
-description: Engineers the goals and requirements of the project interactively with the user and writes them to doc/goals and doc/requirements. Use when the user says "/gg-plan-requirements", wants to find or change requirements, or before the first ticket when no accepted requirement covers the work.
+description: Engineers the goals and requirements of the project interactively with the user and writes them to goals and requirements of the current quarter folder doc/<yyyy>-Q<n>. Use when the user says "/gg-plan-requirements", wants to find or change requirements, or before the first ticket when no accepted requirement covers the work.
 ---
 
 # /gg-plan-requirements
