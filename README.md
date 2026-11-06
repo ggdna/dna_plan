@@ -55,9 +55,10 @@ A consuming repo replaces a tagged section with a sidecar
 | ----------------------------- | --------------------- | ---------------------- |
 | `doc/guides/pm-repo-guide.md` | `@write-requirements` | Write the requirements |
 
-```markdown
-<!-- dna/doc/guides/pm-repo-guide.overrides.md -->
+Keep the heading of a replaced section: other guides link to it. Example
+`dna/doc/guides/pm-repo-guide.overrides.md`:
 
+```markdown
 ## @write-requirements Write the requirements
 
 - The repo's own rules for requirement files and IDs
