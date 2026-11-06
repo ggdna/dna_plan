@@ -8,7 +8,8 @@ found in the LICENSE file in the root of this package.
 
 # Requirements engineering guide
 
-How the requirements of a project are found together with the user. Where
+How the requirements of a project are found together with the user. Goals
+and requirements live in the current quarter folder `doc/<quarter>`. Where
 they are written and what a requirement looks like is in the
 [PM repo guide](pm-repo-guide.md#write-the-requirements).
 
@@ -16,7 +17,7 @@ they are written and what a requirement looks like is in the
 
 - Before the first ticket of a project
 - Before any ticket whose work no accepted requirement covers
-- When `doc/requirements` is missing or empty
+- When `doc/<quarter>/requirements` is missing or empty
 - When a goal is added or changed
 - When the user asks for it
 
@@ -40,10 +41,10 @@ requirements. Bug tickets are the exception, they name their bug file.
 
 ## Run the session
 
-1. Read the PM repo: `README.md`, `doc/goals`, `doc/requirements` and the
-   current quarter's topics, ux files, decisions and architecture
+1. Read the PM repo: `README.md` and the current quarter's goals,
+   requirements, topics, ux files, decisions and architecture
 2. Goals: if there is no active goal, find one first — the outcome, for
-   whom, and how we know it is reached — and write it to `doc/goals`. Ask
+   whom, and how we know it is reached — and write it to `goals`. Ask
    which goals the session serves, and whether `proposed` goals are
    confirmed
 3. People: who uses the product, who operates it, who pays, who else is

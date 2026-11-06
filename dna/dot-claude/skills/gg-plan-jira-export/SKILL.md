@@ -1,6 +1,6 @@
 ---
 name: gg-plan-jira-export
-description: Exports the next tickets of one person as a CSV file for the Jira import - matches the open tickets of the PM repo to the person by their areas, fills one sprint by the estimates and writes doc/exports/<date>-<name>-sprint.csv. Use when the user says "/gg-plan-jira-export", wants tickets in Jira, asks for a sprint or a CSV export, or names a person to plan the next tickets for.
+description: Exports the next tickets of one person as a CSV file for the Jira import - matches the open tickets of the PM repo to the person by their areas, fills one sprint by the estimates and writes doc/<yyyy>-Q<n>/exports/<date>-<name>-sprint.csv. Use when the user says "/gg-plan-jira-export", wants tickets in Jira, asks for a sprint or a CSV export, or names a person to plan the next tickets for.
 ---
 
 # /gg-plan-jira-export

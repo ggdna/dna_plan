@@ -14,8 +14,9 @@ chart.
 
 ## Know what the schedule is
 
-- One file for the whole project, kept across quarters:
-  `doc/schedule.md`
+- One file for the whole project in the current quarter:
+  `doc/<quarter>/schedule.md`; a new quarter takes over the tickets not
+  `done`, see the [PM repo guide](pm-repo-guide.md#start-a-quarter)
 - A forecast, not a promise: it shows when the work is likely done and
   whether a target date holds
 - Optional: a project plans with it only when the user wants one
@@ -30,7 +31,7 @@ Ask one question at a time and propose a default each time:
   report the end date that results
 - Start — default: the next working day
 - Capacity — who works on the project and how many days per week;
-  default: `doc/team/people.md`, if the repo has it
+  default: `team/people.md` of the current quarter, if the repo has it
 - Blocked times — holidays, vacations, other projects
 - Scope — which goals; default: all active ones
 

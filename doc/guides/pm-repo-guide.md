@@ -26,12 +26,12 @@ found in the LICENSE file in the root of this package.
 ```text
 root
 |-doc
-| |-goals
-| | |-results-without-desktop-software.md
-| |-requirements
-| | |-results.md
-| |-schedule.md
 | |-2026-Q3
+| | |-goals
+| | | |-results-without-desktop-software.md
+| | |-requirements
+| | | |-results.md
+| | |-schedule.md
 | | |-concepts
 | | | |-topics
 | | | |-decisions
@@ -44,57 +44,66 @@ root
 | | |-tickets
 | | | |-2026-09-10-cdm-1317-infrastructure-discovery-server.md
 | | |-bugs
-| |-team
-| | |-people.md
-| | |-roles.md
-| |-reports
-| | |-2026-Q3
+| | |-team
+| | | |-people.md
+| | | |-roles.md
+| | |-reports
 | | | |-anna.md
-| |-exports
-| | |-2026-09-10-anna-sprint.csv
-| |-prompts
-| | |-README.md
-| | |-anna                 (on the branch prompts)
-| | | |-2026-09
-| | | | |-2026-09-10_timing_app_3f2a91c0.md
-| |-blog
-| | |-2026
+| | |-exports
+| | | |-2026-09-10-anna-sprint.csv
+| | |-blog
 | | | |-2026-09-10-blogpost-1.md
-| |-de
-| | |-goals
+| | |-prompts
+| | | |-README.md
+| | | |-anna               (on the branch prompts)
+| | | | |-2026-09-10_timing_app_3f2a91c0.md
+| |-2026-Q4
 | | |-...
+| |-de
+| | |-2026-Q3
+| | | |-...
 |-README.md
 |-README.de.md
 ```
 
-- `README.md` names the project and links to the current quarter, the
-  active goals and the requirements
+- Everything the project plans and writes lives in a quarter folder
+  `doc/<yyyy>-Q<n>`, called `doc/<quarter>` below. Nothing of it lives
+  next to the quarter folders, so the repo does not grow fatter and harder
+  to read over the years: the newest quarter folder holds all that is
+  still valid, the older ones are history
+- The newest quarter folder is the current quarter. Read and write only
+  there; never change an older quarter
+- What still holds at the end of a quarter is copied into the next one,
+  see [Start a quarter](#start-a-quarter)
+- `doc/guides` and `doc/templates` come from the DNA layers and stay
+  outside the quarter folders
+- `README.md` names the project and links to the current quarter, its
+  active goals and its requirements
 - `goals` — what the project wants to achieve and for whom; one file per
-  goal, kept across quarters, see below
+  goal, see below
 - `requirements` — what the product must do or be; one file per area,
-  kept across quarters, see below
-- `schedule.md` — the time plan as a Gantt chart, kept across quarters;
-  optional, see [Plan the time](#plan-the-time)
-- `doc/<yyyy>-Q<n>` holds one folder per quarter; start a new one at the
-  start of a quarter, do not move old files
+  see below
+- `schedule.md` — the time plan as a Gantt chart; optional, see
+  [Plan the time](#plan-the-time)
 - `concepts` — what the product is and why, see below
 - `architecture` — the target picture of the system: `architecture.md`
   plus diagrams in `img` as mermaid `.mmd` files
 - `tickets` — one plan file per ticket
 - `bugs` — one file per bug; a bug turns into a ticket once it is planned
-- `team` — who works on the project and in which roles, kept across
-  quarters, see [Know the team](#know-the-team)
-- `reports` — one report per person and quarter with the points to tell
-  them, see [Report to the people](#report-to-the-people)
+- `team` — who works on the project and in which roles, see
+  [Know the team](#know-the-team)
+- `reports` — one report per person with the points to tell them, see
+  [Report to the people](#report-to-the-people)
 - `exports` — CSV files of tickets for Jira, see
   [Export tickets to Jira](#export-tickets-to-jira)
+- `blog` — one post per finished ticket; exists only if the repo has
+  `doc/guides/blog-guide.md` from the `dna_blog` layer, see below
 - `prompts` — the prompts the people wrote to Claude Code, one file per
   session, on the branch `prompts`; on the main branch only its
   `README.md`, see [Keep the prompts](#keep-the-prompts)
-- `blog` — one post per finished ticket; exists only if the repo has
-  `doc/guides/blog-guide.md` from the `dna_blog` layer, see below
-- `de` and `README.de.md` — the German copy; exist only if the repo keeps
-  two languages, see [Keep two languages](#keep-two-languages)
+- `doc/de` and `README.de.md` — the German copy, with the same quarter
+  folders; exist only if the repo keeps two languages, see
+  [Keep two languages](#keep-two-languages)
 
 ## Tell goals and requirements apart
 
@@ -110,12 +119,13 @@ root
 - Topics hold the problem space — evidence and user needs. Requirements are
   the commitments derived from them; do not write requirements into topics
 - Goals and requirements outlive quarters: a goal may take several quarters,
-  a requirement holds for as long as the product does. That is why they do
-  not live in the quarter folders
+  a requirement holds for as long as the product does. That is why the
+  open ones are copied into each new quarter, see
+  [Start a quarter](#start-a-quarter)
 
 ## Write the goals
 
-- Create `doc/goals/<title>.md`, title in English kebab case
+- Create `doc/<quarter>/goals/<title>.md`, title in English kebab case
 - Use these sections, in this order:
 
 ```markdown
@@ -141,10 +151,11 @@ root
 ## Write the requirements
 
 - Group requirements by area of the product, one file per area:
-  `doc/requirements/<area>.md`, area in English kebab case
+  `doc/<quarter>/requirements/<area>.md`, area in English kebab case
 - Give each requirement an ID `req-<area>-<nnn>`, e.g. `req-results-001`;
   the prefix keeps it apart from decision IDs. Never reuse or renumber an
-  ID
+  ID. A new ID follows the highest one of the area in all quarters, since
+  finished requirements stay behind in older quarters
 - Write each requirement as its own section:
 
 ```markdown
@@ -174,7 +185,8 @@ root
   a time and with proposals: the
   [requirements guide](requirements-guide.md) says how, `/gg-plan-requirements`
   runs it
-- Do it before the first ticket, whenever `doc/requirements` is empty, and
+- Do it before the first ticket, whenever `doc/<quarter>/requirements` is
+  empty, and
   whenever the work of a ticket is not covered by an accepted requirement
 - Plan and create tickets only after that. Bug tickets are the exception:
   they name their bug file instead
@@ -182,8 +194,8 @@ root
 
 ## Know the team
 
-- Write down who works on the project in `doc/team/people.md`, one
-  section per person:
+- Write down who works on the project in `doc/<quarter>/team/people.md`,
+  one section per person:
 
 ```markdown
 # People
@@ -215,7 +227,8 @@ root
 - `Sprint length` — once, at the top; default two weeks
 - `Hours per day` — once, at the top: the working hours of one day, used
   to turn estimates in days into hours; default 8
-- Write down the roles in `doc/team/roles.md`, one section per role. Start
+- Write down the roles in `doc/<quarter>/team/roles.md`, one section per
+  role. Start
   with Developer, Product Owner, Management, Sales and Customer, and add
   the ones the project needs:
 
@@ -229,7 +242,7 @@ root
 - Hears about: goals, requirements, decisions, schedule shifts
 ```
 
-- `People` — the first names of `doc/team/people.md` who have the role.
+- `People` — the first names of `people.md` who have the role.
   This is the only place that says who has which role; `people.md` does
   not repeat it
 - `Hears about` decides what lands in the reports of the people in that
@@ -239,10 +252,10 @@ root
   them; their report covers all of them
 - Ask the user for the team before the first report or export; never
   guess people or roles
-- Keep only first names, areas and roles in `doc/team`, besides the Jira
+- Keep only first names, areas and roles in `team`, besides the Jira
   account and the git user names; no contact data
 - Never ask for e-mail addresses and never write one into the PM repo,
-  neither in `doc/team` nor anywhere else. When the user offers one, ask
+  neither in `team` nor anywhere else. When the user offers one, ask
   for the git user name or the Jira account instead
 
 ## Fill the concepts folder
@@ -265,7 +278,8 @@ root
   `dna_blog` layer. Without it, write no post and skip the rest of this
   section
 - Follow the blog guide for content and template
-- Put the post into `doc/blog/<yyyy>` of the PM repo, one folder per year
+- Put the post into `doc/<quarter>/blog` of the PM repo, the quarter of
+  the day the ticket is finished
 - Name it `<yyyy>-<mm>-<dd>-<title>.md`, title in English kebab case
 - One post may cover all repos of the ticket that belong to the
   organization of the PM repo
@@ -308,7 +322,7 @@ root
 ## Report to the people
 
 - Keep one report per person and quarter in
-  `doc/reports/<yyyy>-Q<n>/<name>.md`: the points the person needs to
+  `doc/<quarter>/reports/<name>.md`: the points the person needs to
   hear, each with a checkbox to tick once it is communicated
 - The [report guide](report-guide.md) says how, `/gg-plan-report` runs it: it
   collects what changed for the roles and areas of the person, appends it
@@ -317,7 +331,7 @@ root
 ## Export tickets to Jira
 
 - Export the next tickets of one person as a CSV file Jira imports:
-  `doc/exports/<yyyy>-<mm>-<dd>-<name>-sprint.csv`
+  `doc/<quarter>/exports/<yyyy>-<mm>-<dd>-<name>-sprint.csv`
 - The [Jira export guide](jira-export-guide.md) says how,
   `/gg-plan-jira-export` runs it: it matches the open tickets without a Jira
   key to the person by their areas, fills one sprint by the estimates and
@@ -328,15 +342,18 @@ root
 
 - Every prompt the people write to Claude Code in a repo of the project
   lands here, on the branch `prompts`:
-  `doc/prompts/<name>/<yyyy>-<mm>/<yyyy>-<mm>-<dd>_<repo>_<session>.md`,
-  one file per session, the time of each prompt as its heading
+  `doc/<quarter>/prompts/<name>/<yyyy>-<mm>-<dd>_<repo>_<session>.md`,
+  one file per session in the quarter the session started, the time of
+  each prompt as its heading
 - The `dna_gg` layer does it: a Claude Code hook in every repo whose
   variable `dnaPmRepo` names this repo. The hook commits to the branch
   `prompts` directly, so the main branch and its checks stay untouched
-- The name is the first name in `doc/team/people.md` that the git user
+- The name is the first name in `team/people.md` of the newest quarter
+  that the git user
   name of the session's repo is, or starts with, or whose `Git` line
   lists it. A git user name that matches nobody goes to
-  `doc/prompts/_unknown`; add it to the `Git` line of the person, the
+  `doc/<quarter>/prompts/_unknown`; add it to the `Git` line of the
+  person, the
   next sessions are filed under the name
 - No e-mail address is read or kept: the hook commits as `pm-prompts`
 - Only prompts are kept, never the answers. Tokens and passwords are
@@ -344,8 +361,8 @@ root
 - Never edit, move or delete the prompt files, and never merge the branch
   `prompts` into the main branch. Read them with
   `git fetch origin prompts` and `git show origin/prompts:<path>`
-- On the main branch, `doc/prompts/README.md` says where the prompts are,
-  in German in `doc/de/prompts/README.md`
+- On the main branch, `doc/<quarter>/prompts/README.md` says where the
+  prompts are, in German in `doc/de/<quarter>/prompts/README.md`
 
 ## Use the design layers
 
@@ -416,7 +433,8 @@ Let the user review the plan and revise it until they confirm it.
 - Move answered questions from `Open questions` into the plan or into a
   decision file
 - Set the requirements the ticket fulfilled to `done` when it is finished
-- Mark the ticket `done` in `doc/schedule.md`, if the project has one
+- Mark the ticket `done` in `doc/<quarter>/schedule.md`, if the project
+  has one
 - Reference the plan from the blog post that closes the ticket
 - Keep the file: the plan documents why things are the way they are
 
@@ -427,14 +445,56 @@ Let the user review the plan and revise it until they confirm it.
 - The [schedule guide](schedule-guide.md) says how, `/gg-plan-schedule` runs
   it: it asks for the target date and the capacity, cuts the accepted
   requirements into tickets, estimates each one and draws the plan as a
-  Gantt chart in `doc/schedule.md`
+  Gantt chart in `doc/<quarter>/schedule.md`
 - Plan the time only on accepted requirements
+
+## Start a quarter
+
+Start the folder of a new quarter before the first file of that quarter
+is written, e.g. `doc/2027-Q1` on the first ticket in January. Tell the
+user, show what is carried over and commit it on its own as
+`Start <yyyy>-Q<n>`.
+
+Copy what still holds from the previous quarter:
+
+| What                         | Copied into the new quarter                       |
+| ---------------------------- | ------------------------------------------------- |
+| `goals`                      | the `proposed` and `active` goals                 |
+| `requirements`               | per area, the requirements not `done`/`dropped`   |
+| `team`                       | everything                                        |
+| `architecture`               | everything                                        |
+| `concepts/ux`                | everything                                        |
+| `concepts/decisions`         | `000-index.md` without the superseded decisions   |
+| `schedule.md`                | the tickets not `done`, a fresh `History`         |
+| `prompts/README.md`          | the file                                          |
+| `reports`                    | the open points, by `/gg-plan-report`             |
+
+Move the open tickets and bugs with `git mv` into `tickets` and `bugs`
+of the new quarter: a ticket is open while it is not `done` in the
+schedule and not all its requirements are `done`; ask the user when in
+doubt. This is the only change to an older quarter.
+
+Leave the rest where it was written: topics, decision files, finished
+tickets, blog posts, exports and prompts. The new quarter starts without
+them and links to them in the older quarter, e.g.
+`../../2026-Q4/concepts/decisions/design-001.md`.
+
+- Fix the links of the copied and moved files: links inside the quarter
+  stay as they are, links to what stayed behind point into the older
+  quarter
+- Leave out an area of requirements whose requirements are all `done` or
+  `dropped`; their IDs stay taken
+- Add the new quarter to the `Status` of the goals carried over, e.g.
+  `active since 2026-Q3`
+- Point `README.md` to the new quarter
+- Do the same in `doc/de`, if the repo keeps German copies
 
 ## Plan a quarter
 
-Choose the goals the quarter works on: add new ones to `doc/goals`, add
-the quarter to the status of goals carried over, and set goals to
-`reached` or `dropped` when they are.
+Start the quarter folder first, see [Start a quarter](#start-a-quarter).
+
+Choose the goals the quarter works on: add new ones to `goals`, set the
+goals carried over to `reached` or `dropped` when they are.
 
 Derive the requirements from the goals and the topics together with the
 user; add new ones and change the ones the goals change.
@@ -445,8 +505,8 @@ picture.
 Derive tickets from the requirements; each ticket names the goal it serves
 and the requirements it fulfils.
 
-Update `doc/schedule.md`, if the project has one, and check the forecast
+Update `schedule.md`, if the project has one, and check the forecast
 against the target date.
 
-Check `doc/team` and start the reports of the quarter with `/gg-plan-report`;
+Check `team` and start the reports of the quarter with `/gg-plan-report`;
 it carries the open points of the last quarter over.
