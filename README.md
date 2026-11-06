@@ -6,8 +6,9 @@ repo and the seven layers of product design.
 ## What it ships
 
 - `doc/guides/pm-repo-guide.md` — how a project management (PM) repo is
-  structured; how goals and requirements are kept across quarters; and how
-  tickets and quarters are planned in it. `dna_gg`'s ticket workflow reads
+  structured — everything planned lives in one folder per quarter, and
+  what still holds is copied into the next one; and how tickets and
+  quarters are planned in it. `dna_gg`'s ticket workflow reads
   it when present
 - `doc/guides/requirements-guide.md` — how the requirements are engineered
   together with the user, before any ticket
@@ -17,7 +18,7 @@ repo and the seven layers of product design.
   offer a time plan; it lands in the managed block of the project's
   `CLAUDE.md` next to the ones of the other layers (helix 1.13 or newer)
 - `doc/guides/report-guide.md` — how each person gets a quarterly report
-  in `doc/reports`, with points to tick once they are communicated
+  in `doc/<yyyy>-Q<n>/reports`, with points to tick once they are communicated
 - `doc/guides/jira-export-guide.md` — how the next tickets of one person,
   one sprint's worth, are exported as a CSV file for Jira
 - Skills: `/gg-plan-intro` lists the planning skills and names the next
@@ -27,8 +28,9 @@ repo and the seven layers of product design.
 
 A PM repo is written in English; with the `dna_translate` layer it keeps a
 German copy of every file under `doc/de`. The team — people, their areas
-and roles — lives in `doc/team`. The prompts the people write to Claude
-Code are kept on the branch `prompts` under `doc/prompts`; the hook that
+and roles — lives in `doc/<yyyy>-Q<n>/team`. The prompts the people write
+to Claude Code are kept on the branch `prompts` under
+`doc/<yyyy>-Q<n>/prompts`; the hook that
 writes them comes from [dna_gg](https://github.com/ggsuite/dna_gg), the
 guide says how they are filed.
 

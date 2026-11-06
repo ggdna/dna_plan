@@ -23,9 +23,13 @@ The tickets come after the requirements; the `gg` workflow creates them
 
 ## Say which skill comes next
 
-Read `doc/goals`, `doc/requirements`, `doc/schedule.md`, `doc/team` and
-`doc/reports` and name the next step:
+Read `goals`, `requirements`, `schedule.md`, `team` and `reports` of the
+current quarter folder `doc/<yyyy>-Q<n>`, the newest one, and name the
+next step:
 
+- The calendar is in a quarter that has no folder yet → start it as the
+  [PM repo guide](../../../doc/guides/pm-repo-guide.md#start-a-quarter)
+  says
 - No active goal or no accepted requirement → `/gg-plan-requirements`
 - Requirements, but the work at hand is not covered by them →
   `/gg-plan-requirements`
