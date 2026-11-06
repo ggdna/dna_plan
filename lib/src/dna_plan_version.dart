@@ -9,4 +9,4 @@
 // coverage:ignore-file
 
 /// The version of the `dna_plan` package.
-const String dnaPlanVersion = '1.2.0';
+const String dnaPlanVersion = '2.0.0';
