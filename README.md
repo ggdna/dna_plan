@@ -45,6 +45,25 @@ parent, and it must not — the umbrella lists every topic layer, so taking the
 umbrella back would close a cycle, and a parent here would reach every consumer
 of this topic whether that repo asked for it or not.
 
+## Overridable sections
+
+A consuming repo replaces a tagged section with a sidecar
+`<file>.overrides.md` at the same path in its own `dna/` folder, see
+[helix](https://github.com/ggdna/helix):
+
+| File                          | Tag                   | Section                |
+| ----------------------------- | --------------------- | ---------------------- |
+| `doc/guides/pm-repo-guide.md` | `@write-requirements` | Write the requirements |
+
+Keep the heading of a replaced section: other guides link to it. Example
+`dna/doc/guides/pm-repo-guide.overrides.md`:
+
+```markdown
+## @write-requirements Write the requirements
+
+- The repo's own rules for requirement files and IDs
+```
+
 ## Variables
 
 - `dnaCopyrightHolder` — the name in the license header of every file

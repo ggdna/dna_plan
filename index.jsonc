@@ -9,7 +9,7 @@
   "name": "dna_plan",
 
   // 1-2 sentence summary about this repo.
-  "summary": "DNA layer for planning in a project management repo: guides and /gg-plan-* skills. pub dna_plan, npm @ggdna/dna-plan.",
+  "summary": "DNA layer for planning in a project management repo: guides and /gg-plan-* skills; section @write-requirements overridable. pub dna_plan, npm @ggdna/dna-plan.",
 
   // 1-3 bullet points: the problem space.
   "domain": [

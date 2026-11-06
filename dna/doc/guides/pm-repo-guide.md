@@ -138,7 +138,7 @@ root
 - `Requirements` — links to the requirements derived from the goal
 - Never delete a goal; set it to `reached` or `dropped` and say why
 
-## Write the requirements
+## @write-requirements Write the requirements
 
 - Group requirements by area of the product, one file per area:
   `doc/requirements/<area>.md`, area in English kebab case
