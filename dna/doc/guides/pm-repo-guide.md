@@ -53,10 +53,6 @@ root
 | | | |-2026-09-10-anna-sprint.csv
 | | |-blog
 | | | |-2026-09-10-blogpost-1.md
-| | |-prompts
-| | | |-README.md
-| | | |-anna               (on the branch prompts)
-| | | | |-2026-09-10_timing_app_3f2a91c0.md
 | |-2026-Q4
 | | |-...
 | |-de
@@ -98,9 +94,6 @@ root
   [Export tickets to Jira](#export-tickets-to-jira)
 - `blog` — one post per finished ticket; exists only if the repo has
   `doc/guides/blog-guide.md` from the `dna_blog` layer, see below
-- `prompts` — the prompts the people wrote to Claude Code, one file per
-  session, on the branch `prompts`; on the main branch only its
-  `README.md`, see [Keep the prompts](#keep-the-prompts)
 - `doc/de` and `README.de.md` — the German copy, with the same quarter
   folders; exist only if the repo keeps two languages, see
   [Keep two languages](#keep-two-languages)
@@ -208,7 +201,6 @@ root
 - Areas: result list, import of race data, the `timing_app` repo
 - Days per week: 4
 - Jira: anna
-- Git: amuster
 ```
 
 - The section title is the first name; the file names of the person use
@@ -219,11 +211,6 @@ root
 - `Jira` — the name Jira knows the person by: the user name on Jira Data
   Center or Server, e.g. `anna`, the Atlassian account ID on Jira Cloud;
   optional
-- `Git` — the git user names the person commits with
-  (`git config user.name`), separated by commas; optional. Needed only
-  when the git user name neither is the first name nor starts with it,
-  e.g. `amuster`. The prompts of the person are filed under their first
-  name by it, see [Keep the prompts](#keep-the-prompts)
 - `Sprint length` — once, at the top; default two weeks
 - `Hours per day` — once, at the top: the working hours of one day, used
   to turn estimates in days into hours; default 8
@@ -316,8 +303,8 @@ root
   both copies stay readable for tools
 - Keep both copies equal in content and structure; a ticked point in a
   report is ticked in both
-- Do not translate the guides, the templates, the CSV exports or the
-  prompts; the guides come from the DNA layers
+- Do not translate the guides, the templates or the CSV exports; the
+  guides come from the DNA layers
 
 ## Report to the people
 
@@ -337,32 +324,6 @@ root
   key to the person by their areas, fills one sprint by the estimates and
   writes the file
 - The person is assigned at export time only, never in the ticket file
-
-## Keep the prompts
-
-- Every prompt the people write to Claude Code in a repo of the project
-  lands here, on the branch `prompts`:
-  `doc/<quarter>/prompts/<name>/<yyyy>-<mm>-<dd>_<repo>_<session>.md`,
-  one file per session in the quarter the session started, the time of
-  each prompt as its heading
-- The `dna_gg` layer does it: a Claude Code hook in every repo whose
-  variable `dnaPmRepo` names this repo. The hook commits to the branch
-  `prompts` directly, so the main branch and its checks stay untouched
-- The name is the first name in `team/people.md` of the newest quarter
-  that the git user
-  name of the session's repo is, or starts with, or whose `Git` line
-  lists it. A git user name that matches nobody goes to
-  `doc/<quarter>/prompts/_unknown`; add it to the `Git` line of the
-  person, the
-  next sessions are filed under the name
-- No e-mail address is read or kept: the hook commits as `pm-prompts`
-- Only prompts are kept, never the answers. Tokens and passwords are
-  replaced by `[redacted]` before they leave the computer
-- Never edit, move or delete the prompt files, and never merge the branch
-  `prompts` into the main branch. Read them with
-  `git fetch origin prompts` and `git show origin/prompts:<path>`
-- On the main branch, `doc/<quarter>/prompts/README.md` says where the
-  prompts are, in German in `doc/de/<quarter>/prompts/README.md`
 
 ## Use the design layers
 
@@ -466,7 +427,6 @@ Copy what still holds from the previous quarter:
 | `concepts/ux`                | everything                                        |
 | `concepts/decisions`         | `000-index.md` without the superseded decisions   |
 | `schedule.md`                | the tickets not `done`, a fresh `History`         |
-| `prompts/README.md`          | the file                                          |
 | `reports`                    | the open points, by `/gg-plan-report`             |
 
 Move the open tickets and bugs with `git mv` into `tickets` and `bugs`
@@ -475,7 +435,7 @@ schedule and not all its requirements are `done`; ask the user when in
 doubt. This is the only change to an older quarter.
 
 Leave the rest where it was written: topics, decision files, finished
-tickets, blog posts, exports and prompts. The new quarter starts without
+tickets, blog posts and exports. The new quarter starts without
 them and links to them in the older quarter, e.g.
 `../../2026-Q4/concepts/decisions/design-001.md`.
 
