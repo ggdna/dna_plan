@@ -25,8 +25,5 @@ planning rules are in `doc/guides/pm-repo-guide.md`. When you plan in one:
   the user asks what to tell someone, offer `/gg-plan-report`; when they
   want tickets in Jira or plan the next sprint of a person, offer
   `/gg-plan-jira-export`
-- The prompts of the people are kept on the branch `prompts` under
-  `doc/<yyyy>-Q<n>/prompts`. Never edit them and never merge that branch
-  into main
 
 `/gg-plan-intro` lists the planning skills and says which one comes next.
