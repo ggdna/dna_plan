@@ -5,7 +5,7 @@
       "name": "base",
       "package": "helix",
       "ecosystem": null,
-      "resolvedVersion": "1.14.0",
+      "resolvedVersion": "1.15.2",
       "via": null,
       "hash": "0x6883da335b415f9d"
     },
@@ -15,19 +15,19 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0xa2af6f1178980d2e"
+      "hash": "0x476b8a879857e55a"
     }
   ],
   "claude": {
     "claudeMdInclude": null,
     "claudeMdFromDna": true
   },
-  "baseVersion": "1.14.0",
+  "baseVersion": "1.15.2",
   "baseHash": "0x6883da335b415f9d",
   "instances": [
     {
       "path": ".claude/CLAUDE_dna_plan.md",
-      "hash": "0x37b8e6e6a007cbbb"
+      "hash": "0xa4d1e1f8532fd538"
     },
     {
       "path": ".claude/skills/gg-plan-intro/SKILL.md",
@@ -55,7 +55,7 @@
     },
     {
       "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x254bd2c4b688bf9d"
+      "hash": "0x2cb57216f6c3176f"
     },
     {
       "path": "doc/guides/report-guide.md",
