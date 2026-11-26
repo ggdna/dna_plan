@@ -362,9 +362,8 @@ root
 ## Die Sprachen pflegen <a id="keep-the-languages"></a>
 
 - Dieses Repo hält seine Dateien in diesen Sprachen, die führende zuerst:
-  `dnaLanguages`. Die DNA-Variable, die sie festlegt, ist in
-  `dna/_vars.json` aufgeführt; ändere sie in den `vars` von
-  `dna/_dna.json`
+  `dnaLanguages`. Ändere sie in den `vars` von `dna/_dna.json`, unter dem
+  Schlüssel `dna` + `Languages` in einem Wort, z. B. `"en,de"`
 - Jede Datei von `pm` und `doc` existiert einmal pro Sprache, unter
   `pm/<lang>` und `doc/<lang>` mit gleichem Pfad und Dateinamen, wobei
   `<lang>` der zweibuchstabige Code der Sprache ist

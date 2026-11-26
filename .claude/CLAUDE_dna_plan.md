@@ -20,7 +20,8 @@ planning rules are in `doc/en/guides/pm-repo-guide.md`. When you plan in one:
 - Keep the PM repo in its languages `dnaLanguages`, the leading one
   first: every file exists under `pm/<lang>` and `doc/<lang>` of each
   language, the README as `README.md` and `README.<lang>.md`. Change all
-  copies in the same commit
+  copies in the same commit. The guides and templates of the DNA come in
+  every language it ships, whatever the repo keeps; never edit them
 - The people and their roles are in `team` of the current quarter. When
   the user asks what to tell someone, offer `/gg-plan-report`; when they
   want tickets in Jira or plan the next sprint of a person, offer

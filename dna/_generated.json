@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x416166a7236e0107"
+      "hash": "0xdb54a2934719c19b"
     }
   ],
   "claude": {
@@ -29,7 +29,7 @@
   "instances": [
     {
       "path": ".claude/CLAUDE_dna_plan.md",
-      "hash": "0xe23c9abbe2d85fdb"
+      "hash": "0x7399506c3050e1b4"
     },
     {
       "path": ".claude/skills/gg-plan-intro/SKILL.md",
@@ -57,7 +57,7 @@
     },
     {
       "path": "doc/de/guides/pm-repo-guide.md",
-      "hash": "0x1d6fdd1d27588121"
+      "hash": "0xad5655559d52f427"
     },
     {
       "path": "doc/de/guides/report-guide.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "doc/en/guides/pm-repo-guide.md",
-      "hash": "0xb042c808bac290ce"
+      "hash": "0x18c5dd8ba7705ff0"
     },
     {
       "path": "doc/en/guides/report-guide.md",
@@ -97,7 +97,7 @@
     },
     {
       "path": "doc/fa/guides/pm-repo-guide.md",
-      "hash": "0x66760a9fc6b3337e"
+      "hash": "0xe765e5fe9e9cd879"
     },
     {
       "path": "doc/fa/guides/report-guide.md",
