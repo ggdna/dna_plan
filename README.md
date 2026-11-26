@@ -40,7 +40,8 @@ same name:
 
 `tool/migrate_doc_structure.dart` moves the documentation of a repo into
 this structure: run `dart run <path>/tool/migrate_doc_structure.dart` in
-its root, `--dry-run` first.
+its root, `--dry-run` first, and read the README afterwards: link texts
+that name an old path keep their text.
 
 The guide plans with the seven layers of product design. Their guides and
 the `/layers-*` skills live in

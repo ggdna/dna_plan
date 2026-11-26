@@ -24,13 +24,51 @@
 //
 //   dart run <path>/tool/migrate_doc_structure.dart [--dry-run]
 //
-// A second run changes nothing.
+// A second run changes nothing. Read the README afterwards: link texts
+// that name an old path keep their text, tables may need formatting.
 
 import 'dart:convert';
 import 'dart:io';
 
 final _quarterRe = RegExp(r'^\d{4}-Q[1-4]$');
 final _langRe = RegExp(r'^[a-z]{2}$');
+
+/// Two-letter codes that name a language folder. `ux`, `ui` or `db` are
+/// folders of their own, not languages.
+const _knownLanguages = {
+  'ar',
+  'cs',
+  'da',
+  'de',
+  'el',
+  'en',
+  'es',
+  'fa',
+  'fi',
+  'fr',
+  'he',
+  'hi',
+  'hu',
+  'it',
+  'ja',
+  'ko',
+  'nl',
+  'no',
+  'pl',
+  'pt',
+  'ro',
+  'ru',
+  'sv',
+  'tr',
+  'uk',
+  'zh',
+};
+
+/// Whether [name] is the folder of a language.
+bool _isLang(String name) =>
+    _langRe.hasMatch(name) &&
+    !_quarterKinds.contains(name) &&
+    _knownLanguages.contains(name);
 final _datePrefixRe = RegExp(r'^(\d{4})-(\d{2})-(\d{2})-');
 
 /// Folders that belong into a quarter of `pm/<lang>`.
@@ -77,7 +115,7 @@ void main(List<String> args) {
   _planLanguage('en', 'doc');
   for (final dir in _subDirs('doc')) {
     final name = _base(dir);
-    if (_langRe.hasMatch(name) && name != 'en') _planLanguage(name, dir);
+    if (_isLang(name) && name != 'en') _planLanguage(name, dir);
   }
   _planFile('doc/ticket-counter.json', 'pm/ticket-counter.json');
 
@@ -175,7 +213,7 @@ void _planLanguage(String lang, String base) {
     final name = _base(entry);
     if (_quarterRe.hasMatch(name)) continue;
     if (_dnaOwned.contains(name)) continue;
-    if (base == 'doc' && _langRe.hasMatch(name)) continue; // other languages
+    if (base == 'doc' && _isLang(name)) continue; // other languages
     if (base == 'doc' && name == 'ticket-counter.json') continue;
     final isDir = Directory('$_root/$entry').existsSync();
     if (isDir && _quarterKinds.contains(name)) {
@@ -208,19 +246,34 @@ String _inQuarter(String rest) {
   return rest;
 }
 
-/// The quarter a loose file goes to: blog posts and dated reports by their
-/// date, the rest into the newest quarter.
+/// The quarter a loose file goes to: a file below a quarter folder stays in
+/// that quarter; blog posts, exports and meetings go by the date of their
+/// file name, else by their `<yyyy>/<mm>` folders; the rest goes into the
+/// newest quarter.
 String _quarterFor(String kind, String rest, String newest) {
   final parts = rest.split('/');
   if (parts.length > 1 && _quarterRe.hasMatch(parts.first)) return parts.first;
-  final m = _datePrefixRe.firstMatch(parts.last);
-  if (m != null &&
-      (kind == 'blog' || kind == 'exports' || kind == 'meetings')) {
-    final month = int.parse(m.group(2)!);
-    return '${m.group(1)}-Q${(month - 1) ~/ 3 + 1}';
+  if (kind != 'blog' && kind != 'exports' && kind != 'meetings') {
+    return newest;
   }
-  return newest;
+  final m = _datePrefixRe.firstMatch(parts.last);
+  if (m != null) {
+    return _quarterOf(int.parse(m.group(1)!), int.parse(m.group(2)!));
+  }
+  final year = parts.length > 1 && RegExp(r'^\d{4}$').hasMatch(parts[0])
+      ? int.parse(parts[0])
+      : null;
+  if (year == null) return newest;
+  final month = parts.length > 2 && RegExp(r'^\d{2}$').hasMatch(parts[1])
+      ? int.parse(parts[1])
+      : null;
+  if (month != null) return _quarterOf(year, month);
+  // A year folder alone: the newest quarter of that year that exists in the
+  // repo, else its last quarter.
+  return newest.startsWith('$year-') ? newest : '$year-Q4';
 }
+
+String _quarterOf(int year, int month) => '$year-Q${(month - 1) ~/ 3 + 1}';
 
 /// Drops year and quarter folders: `blog/2026/x.md` -> `x.md`,
 /// `reports/2026-Q4/x.md` -> `x.md`.
@@ -265,7 +318,7 @@ void _readDnaInstances() {
 bool _isDnaPath(String p) {
   if (!p.startsWith('doc/')) return false;
   final first = p.split('/')[1];
-  if (_langRe.hasMatch(first) || _quarterRe.hasMatch(first)) return false;
+  if (_isLang(first) || _quarterRe.hasMatch(first)) return false;
   if (_dnaOwned.contains(first)) return true;
   return _dnaInstances.contains(p) ||
       _dnaInstances.any((i) => i.startsWith('$p/'));
@@ -295,7 +348,7 @@ void _rewriteDnaConfig() {
   final updated = text.replaceAllMapped(RegExp(r'"doc/([^"]+)"'), (m) {
     final rest = m.group(1)!;
     final first = rest.split('/').first;
-    if (_langRe.hasMatch(first)) return m.group(0)!;
+    if (_isLang(first)) return m.group(0)!;
     return '"doc/en/$rest"';
   });
   if (updated != text) file.writeAsStringSync(updated);
@@ -305,7 +358,7 @@ void _rewriteDnaConfig() {
 // Links
 
 final _linkRe = RegExp(
-  r'(\]\()([^)\s]+)(\))|(^[ ]{0,3}\[[^\]\n]+\]:[ \t]+)(\S+)|(\bsrc=")([^"]+)(")',
+  r'(\]\()([^)\s]+)((?:\s+"[^"]*")?\))|(^[ ]{0,3}\[[^\]\n]+\]:[ \t]+)(\S+)|(\bsrc=")([^"]+)(")',
   multiLine: true,
 );
 final _fenceRe = RegExp(r'^```[\s\S]*?^```', multiLine: true);
@@ -447,7 +500,12 @@ String _normalize(String p) {
   for (final s in p.split('/')) {
     if (s.isEmpty || s == '.') continue;
     if (s == '..') {
-      if (out.isNotEmpty) out.removeLast();
+      // A link may leave the repo: keep the `..` that leads out of it.
+      if (out.isNotEmpty && out.last != '..') {
+        out.removeLast();
+      } else {
+        out.add(s);
+      }
     } else {
       out.add(s);
     }
@@ -472,7 +530,7 @@ String _dir(String p) {
   return i < 0 ? '' : p.substring(0, i);
 }
 
-String _base(String p) => p.split('/').last;
+String _base(String p) => p.split(RegExp(r'[/\\]')).last;
 
 List<String> _entries(String rel) {
   final d = Directory('$_root/$rel');
@@ -489,7 +547,7 @@ List<String> _files(String rel) {
   return d
       .listSync(recursive: true)
       .whereType<File>()
-      .map((f) => f.path.substring(_root.length + 1))
+      .map((f) => f.path.substring(_root.length + 1).replaceAll(r'\', '/'))
       .toList()
     ..sort();
 }
