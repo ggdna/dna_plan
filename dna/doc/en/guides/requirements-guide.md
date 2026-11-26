@@ -1,6 +1,6 @@
 <!--
 @license
-Copyright (c) ggdna
+Copyright (c) dnaCopyrightHolder
 
 Use of this source code is governed by terms that can be
 found in the LICENSE file in the root of this package.
@@ -9,22 +9,22 @@ found in the LICENSE file in the root of this package.
 # Requirements engineering guide
 
 How the requirements of a project are found together with the user. Goals
-and requirements live in the current quarter folder `doc/<quarter>`. Where
+and requirements live in the current quarter folder `pm/<lang>/<quarter>`. Where
 they are written and what a requirement looks like is in the
 [PM repo guide](pm-repo-guide.md#write-the-requirements).
 
-## Know when to engineer requirements
+## @engineer Know when to engineer requirements
 
 - Before the first ticket of a project
 - Before any ticket whose work no accepted requirement covers
-- When `doc/<quarter>/requirements` is missing or empty
+- When `pm/<lang>/<quarter>/requirements` is missing or empty
 - When a goal is added or changed
 - When the user asks for it
 
 Tickets come after the requirements: plan a ticket only on accepted
 requirements. Bug tickets are the exception, they name their bug file.
 
-## Work with the user, not for them
+## @user Work with the user, not for them
 
 - Ask one question at a time and give the user a single input per answer
 - Propose instead of asking blank: offer two to four candidate answers
@@ -35,11 +35,11 @@ requirements. Bug tickets are the exception, they name their bug file.
   `proposed` only when the user wants to come back to them
 - Challenge vague answers: ask for a number, an example or a check
 - Stop after each area, sum up what was agreed and ask whether to go on
-- Talk to the user in their language; write the files in English, plus the
-  German copy if the repo keeps one, see the
-  [PM repo guide](pm-repo-guide.md#keep-two-languages)
+- Talk to the user in their language; write the files in the leading language of
+  the repo first, then in its other languages, see the
+  [PM repo guide](pm-repo-guide.md#keep-the-languages)
 
-## Run the session
+## @session Run the session
 
 1. Read the PM repo: `README.md` and the current quarter's goals,
    requirements, topics, ux files, decisions and architecture
@@ -66,7 +66,7 @@ requirements. Bug tickets are the exception, they name their bug file.
     is new, what is still `proposed`, and what comes next — the tickets,
     or `/gg-plan-schedule` for a time plan
 
-## Ask for the quality requirements
+## @quality Ask for the quality requirements
 
 | Area          | Ask about                                        |
 | ------------- | ------------------------------------------------ |
@@ -81,7 +81,7 @@ requirements. Bug tickets are the exception, they name their bug file.
 | Compatibility | Interfaces, data formats, migration of old data  |
 | Cost          | Hosting, licences, maintenance effort            |
 
-## Check the set
+## @check Check the set
 
 - Testable — the acceptance checks can actually be run
 - One thing — no "and" that joins two needs
@@ -92,7 +92,7 @@ requirements. Bug tickets are the exception, they name their bug file.
 - Consistent — contradicts no other requirement and no decision
 - Complete — every goal's measure and every scenario step is covered
 
-## Change requirements later
+## @requirements Change requirements later
 
 - Change them the same way: interactively, with the user's confirmation
 - Note in the requirement what changed, when and why

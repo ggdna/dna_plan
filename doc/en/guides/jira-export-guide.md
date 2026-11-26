@@ -14,7 +14,7 @@ file that Jira imports: one sprint's worth, in the order of the plan.
 ## Know what the export is
 
 - One CSV file per export:
-  `doc/<quarter>/exports/<yyyy>-<mm>-<dd>-<name>-sprint.csv`, `<name>` is
+  `pm/<lang>/<quarter>/exports/<yyyy>-<mm>-<dd>-<name>-sprint.csv`, `<name>` is
   the first name in lower case kebab case, `<quarter>` the current
   quarter folder `<yyyy>-Q<n>`
 - It holds only tickets that are not in Jira yet, see below
@@ -23,7 +23,8 @@ file that Jira imports: one sprint's worth, in the order of the plan.
 - It needs the team: without `team/people.md` in the current quarter,
   set it up with the
   user first, see the [PM repo guide](pm-repo-guide.md#know-the-team)
-- The CSV is data: it is never translated
+- The CSV exists in each language of the repo: translate the summaries
+  and descriptions, never the header row, the keys, the IDs or the names
 
 ## Set the frame with the user
 
@@ -51,16 +52,16 @@ it instead of asking for them.
 
 ## Find the open tickets
 
-- Take the ticket files in `doc/<quarter>/tickets` of the current quarter
+- Take the ticket files in `pm/<lang>/<quarter>/tickets` of the current quarter
   — open tickets move along into each new quarter — and the planned
-  tickets of its `schedule.md` that have no file yet
-- Leave out finished tickets: marked `done` in `schedule.md`, or all
+  tickets of its `charts/schedule.md` that have no file yet
+- Leave out finished tickets: marked `done` in `charts/schedule.md`, or all
   their requirements are `done`
 - Leave out tickets that are in Jira already: their ID is a Jira key,
   letters, a dash and a number, e.g. `cdm-1317` in
   `2026-09-10-cdm-1317-infrastructure-discovery-server.md`. Numbers alone,
   e.g. `14`, are local IDs, not Jira keys
-- Order them as `schedule.md` does; without a schedule, by what they
+- Order them as `charts/schedule.md` does; without a schedule, by what they
   wait for, then by the priority of their requirements: `must` before
   `should` before `could`
 
@@ -77,7 +78,7 @@ it instead of asking for them.
 ## Fill the sprint
 
 - Take each ticket's expected duration from the `Tickets` table of
-  `schedule.md`. Without one, estimate it as the
+  `charts/schedule.md`. Without one, estimate it as the
   [schedule guide](schedule-guide.md#estimate-each-ticket) says and show
   the numbers first
 - Add the person's tickets in order until the next one does not fit the
@@ -96,7 +97,7 @@ Summary,Issue Type,Priority,Assignee,Labels,Original Estimate,Sprint,Description
 Requirements: req-results-002
 Steps:
 * ...
-Plan: {{doc/2026-Q4/tickets/2026-11-02-import-race-data.md}}"
+Plan: {{pm/en/2026-Q4/tickets/2026-11-02-import-race-data.md}}"
 ```
 
 - `Summary` — the ticket title in words, not in kebab case
@@ -115,7 +116,7 @@ Plan: {{doc/2026-Q4/tickets/2026-11-02-import-race-data.md}}"
   without a sprint
 - `Description` — the goal, the requirements by ID, the steps and the
   path of the plan file; without a plan file, the line of
-  `schedule.md`. Jira Data Center and Server render wiki markup:
+  `charts/schedule.md`. Jira Data Center and Server render wiki markup:
   write list items as `* `, and put paths, file names and IDs with `_`
   or braces into `{{…}}`
 - Leave out `Issue Key`: with it Jira would update existing issues
@@ -146,5 +147,5 @@ back:
   title line: `# CDM-1800: Import race data`
 - A ticket that had no file gets one now, see the
   [PM repo guide](pm-repo-guide.md#write-the-ticket-file)
-- Use the key as the ticket name in `schedule.md`
-- Do the same in the German copies, if the repo keeps them
+- Use the key as the ticket name in `charts/schedule.md`
+- Do the same in every language of the repo

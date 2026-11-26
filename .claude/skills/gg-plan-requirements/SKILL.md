@@ -1,13 +1,13 @@
 ---
 name: gg-plan-requirements
-description: Engineers the goals and requirements of the project interactively with the user and writes them to goals and requirements of the current quarter folder doc/<yyyy>-Q<n>. Use when the user says "/gg-plan-requirements", wants to find or change requirements, or before the first ticket when no accepted requirement covers the work.
+description: Engineers the goals and requirements of the project interactively with the user and writes them to goals and requirements of the current quarter folder pm/<lang>/<yyyy>-Q<n>. Use when the user says "/gg-plan-requirements", wants to find or change requirements, or before the first ticket when no accepted requirement covers the work.
 ---
 
 # /gg-plan-requirements
 
-Read [requirements-guide.md](../../../doc/guides/requirements-guide.md) and
+Read [requirements-guide.md](../../../doc/en/guides/requirements-guide.md) and
 run the session by it. The format of goal and requirement files is in
-[pm-repo-guide.md](../../../doc/guides/pm-repo-guide.md#write-the-goals).
+[pm-repo-guide.md](../../../doc/en/guides/pm-repo-guide.md#write-the-goals).
 
 ## Important
 
