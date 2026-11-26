@@ -504,16 +504,16 @@ für sich als `Start <yyyy>-Q<n>`.
 
 Kopiere, was aus dem Vorquartal noch gilt:
 
-| Was                          | In das neue Quartal kopiert                          |
-| ---------------------------- | ---------------------------------------------------- |
-| `goals`                      | die Ziele mit `proposed` und `active`                |
-| `requirements`               | pro Bereich die Anforderungen nicht `done`/`dropped` |
-| `team`                       | alles                                                |
-| `architecture`               | alles                                                |
-| `concepts/ux`                | alles                                                |
-| `concepts/decisions`         | `000-index.md` ohne die abgelösten Entscheidungen    |
-| `charts/schedule.md`         | die Tickets nicht `done`, eine frische `History`     |
-| `reports`                    | die offenen Punkte, per `/gg-plan-report`            |
+| Was                  | In das neue Quartal kopiert                          |
+| -------------------- | ---------------------------------------------------- |
+| `goals`              | die Ziele mit `proposed` und `active`                |
+| `requirements`       | pro Bereich die Anforderungen nicht `done`/`dropped` |
+| `team`               | alles                                                |
+| `architecture`       | alles                                                |
+| `concepts/ux`        | alles                                                |
+| `concepts/decisions` | `000-index.md` ohne die abgelösten Entscheidungen    |
+| `charts/schedule.md` | die Tickets nicht `done`, eine frische `History`     |
+| `reports`            | die offenen Punkte, per `/gg-plan-report`            |
 
 Verschiebe die offenen Tickets und Bugs mit `git mv` in `tickets` und
 `bugs` des neuen Quartals: Ein Ticket ist offen, solange es im Zeitplan
