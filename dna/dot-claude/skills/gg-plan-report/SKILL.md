@@ -8,7 +8,7 @@ description: Keeps the quarterly report of each person in doc/<yyyy>-Q<n>/report
 Read [report-guide.md](../../../doc/guides/report-guide.md) and work by
 it.
 
-## Important
+## @important Important
 
 - Ask for the person first; default: everyone in `team/people.md` of the
   current quarter

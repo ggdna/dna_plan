@@ -12,7 +12,7 @@ How the time plan of a project is made: the requirements are cut into
 tickets, each ticket is estimated, and the result is drawn as a Gantt
 chart.
 
-## Know what the schedule is
+## @schedule Know what the schedule is
 
 - One file for the whole project in the current quarter:
   `doc/<quarter>/schedule.md`; a new quarter takes over the tickets not
@@ -23,7 +23,7 @@ chart.
 - It rests on accepted requirements. Without them, run
   `/gg-plan-requirements` first
 
-## Set the frame with the user
+## @frame Set the frame with the user
 
 Ask one question at a time and propose a default each time:
 
@@ -35,7 +35,7 @@ Ask one question at a time and propose a default each time:
 - Blocked times — holidays, vacations, other projects
 - Scope — which goals; default: all active ones
 
-## Cut the work into tickets
+## @work Cut the work into tickets
 
 - Group the accepted requirements that are not `done` into tickets. One
   ticket is one step that can be delivered on its own, ideally one to five
@@ -49,7 +49,7 @@ Ask one question at a time and propose a default each time:
   ticket file only when it is planned for real, see the
   [PM repo guide](pm-repo-guide.md#plan-a-ticket)
 
-## Estimate each ticket
+## @estimate Estimate each ticket
 
 - Estimate in working days of one person: optimistic `o`, likely `l`,
   pessimistic `p`
@@ -61,7 +61,7 @@ Ask one question at a time and propose a default each time:
 - Show the estimates to the user before drawing the chart. Their numbers
   win
 
-## Lay out the plan
+## @plan Lay out the plan
 
 - Order the tickets by what they wait for, then by priority: `must`
   before `should` before `could`
@@ -76,7 +76,7 @@ Ask one question at a time and propose a default each time:
   requirement. The user decides; never shrink estimates to make the plan
   fit
 
-## Write the schedule
+## @schedule-2 Write the schedule
 
 Use this template:
 
@@ -125,7 +125,7 @@ gantt
   `Import race data :done, import, 2026-11-02, 7d`
 - One `milestone` at the target date, if there is one
 
-## Keep it alive
+## @maintain Keep it alive
 
 - Update the schedule when a ticket is finished: mark it `done` and note
   how long it really took

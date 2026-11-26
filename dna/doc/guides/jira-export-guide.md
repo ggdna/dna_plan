@@ -11,7 +11,7 @@ found in the LICENSE file in the root of this package.
 How the next tickets of one person are exported from the PM repo as a CSV
 file that Jira imports: one sprint's worth, in the order of the plan.
 
-## Know what the export is
+## @export Know what the export is
 
 - One CSV file per export:
   `doc/<quarter>/exports/<yyyy>-<mm>-<dd>-<name>-sprint.csv`, `<name>` is
@@ -25,7 +25,7 @@ file that Jira imports: one sprint's worth, in the order of the plan.
   user first, see the [PM repo guide](pm-repo-guide.md#know-the-team)
 - The CSV is data: it is never translated
 
-## Set the frame with the user
+## @frame Set the frame with the user
 
 Ask one question at a time and propose a default each time:
 
@@ -49,7 +49,7 @@ If a Jira connection is available, e.g. the Atlassian MCP server, read
 the user names, issue types, priorities and sprints of the project from
 it instead of asking for them.
 
-## Find the open tickets
+## @open Find the open tickets
 
 - Take the ticket files in `doc/<quarter>/tickets` of the current quarter
   — open tickets move along into each new quarter — and the planned
@@ -64,7 +64,7 @@ it instead of asking for them.
   wait for, then by the priority of their requirements: `must` before
   `should` before `could`
 
-## Match the tickets to the person
+## @match Match the tickets to the person
 
 - Compare each open ticket with the areas of every person in
   `team/people.md`: the repos it changes, the requirements and goals
@@ -74,7 +74,7 @@ it instead of asking for them.
 - Show a table — ticket, matched person, the area that decided it — and
   let the user move tickets between people. Write nothing back
 
-## Fill the sprint
+## @sprint Fill the sprint
 
 - Take each ticket's expected duration from the `Tickets` table of
   `schedule.md`. Without one, estimate it as the
@@ -86,7 +86,7 @@ it instead of asking for them.
 - Show the sprint — tickets, days, the capacity left — and let the user
   confirm or change it
 
-## Write the CSV
+## @csv Write the CSV
 
 Use these columns, in this order:
 
@@ -123,7 +123,7 @@ Plan: {{doc/2026-Q4/tickets/2026-11-02-import-race-data.md}}"
   quote every field that holds a comma, a quote or a line break, and
   double the quotes inside it; give every row the same number of fields
 
-## Tell the user how to import it
+## @import Tell the user how to import it
 
 - Jira Data Center or Server: Issues → Import Issues from CSV; it needs
   the permissions to create issues and to bulk change
@@ -136,7 +136,7 @@ Plan: {{doc/2026-Q4/tickets/2026-11-02-import-race-data.md}}"
   `Description`, or Jira drops its line breaks
 - Validate first, then import
 
-## Take the keys back
+## @keys Take the keys back
 
 When the user has imported the file and asks for it, write the Jira keys
 back:

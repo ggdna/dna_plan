@@ -8,7 +8,7 @@ description: Exports the next tickets of one person as a CSV file for the Jira i
 Read [jira-export-guide.md](../../../doc/guides/jira-export-guide.md)
 and work by it.
 
-## Important
+## @important Important
 
 - The person is required; ask for it if the user did not name one
 - Export only tickets without a Jira key, and only one sprint's worth

@@ -8,7 +8,7 @@ found in the LICENSE file in the root of this package.
 
 # Project management repo guide
 
-## Know what a PM repo is
+## @pm Know what a PM repo is
 
 - A project management (PM) repo holds the goals, requirements, concepts,
   plans, schedule, decisions and blog posts of a project — no code
@@ -21,7 +21,7 @@ found in the LICENSE file in the root of this package.
   from the `dna_translate` layer, keep a German copy of every file as
   well, see [Keep two languages](#keep-two-languages)
 
-## Structure the repo like this
+## @structure Structure the repo like this
 
 ```text
 root
@@ -98,7 +98,7 @@ root
   folders; exist only if the repo keeps two languages, see
   [Keep two languages](#keep-two-languages)
 
-## Tell goals and requirements apart
+## @goals-requirements Tell goals and requirements apart
 
 - A goal says **why** and **for whom**: an outcome the project wants, e.g.
   "clubs evaluate their races without desktop software". It leaves open how
@@ -116,7 +116,7 @@ root
   open ones are copied into each new quarter, see
   [Start a quarter](#start-a-quarter)
 
-## Write the goals
+## @goals Write the goals
 
 - Create `doc/<quarter>/goals/<title>.md`, title in English kebab case
 - Use these sections, in this order:
@@ -172,7 +172,7 @@ root
   that is replaced is set to `dropped` and links its successor
 - A broken `done` requirement is a bug, not a new requirement
 
-## Engineer the requirements first
+## @engineer Engineer the requirements first
 
 - Find the goals and requirements together with the user, one question at
   a time and with proposals: the
@@ -185,7 +185,7 @@ root
   they name their bug file instead
 - `/gg-plan-intro` lists the planning skills and says which one comes next
 
-## Know the team
+## @team Know the team
 
 - Write down who works on the project in `doc/<quarter>/team/people.md`,
   one section per person:
@@ -245,7 +245,7 @@ root
   neither in `team` nor anywhere else. When the user offers one, ask
   for the git user name or the Jira account instead
 
-## Fill the concepts folder
+## @concepts Fill the concepts folder
 
 - `topics` — one file per product topic: evidence, use cases, user needs,
   what was tried and what holds; the place for problem-space knowledge
@@ -259,7 +259,7 @@ root
   paragraph
 - Never rewrite a decision; supersede it with a new one and link both ways
 
-## Write blog posts
+## @blog Write blog posts
 
 - Write a post only if `doc/guides/blog-guide.md` exists; it comes from the
   `dna_blog` layer. Without it, write no post and skip the rest of this
@@ -276,7 +276,7 @@ root
   name, version and what the update means for this organization's repos;
   never their tickets, plans or internals
 
-## Name the files
+## @files Name the files
 
 - Prefix ticket and bug files with the date: `<yyyy>-<mm>-<dd>-`
 - Add the ticket ID in lower case: `cdm-1317`
@@ -288,7 +288,7 @@ root
   `<name>` being the first name in lower case kebab case
 - Keep the English file names in the German copy
 
-## Keep two languages
+## @languages Keep two languages
 
 - English is the leading language of a PM repo: every file exists in
   English, under `doc` and as `README.md`
@@ -306,7 +306,7 @@ root
 - Do not translate the guides, the templates or the CSV exports; the
   guides come from the DNA layers
 
-## Report to the people
+## @people Report to the people
 
 - Keep one report per person and quarter in
   `doc/<quarter>/reports/<name>.md`: the points the person needs to
@@ -315,7 +315,7 @@ root
   collects what changed for the roles and areas of the person, appends it
   and starts the file of a new quarter with the open points carried over
 
-## Export tickets to Jira
+## @export Export tickets to Jira
 
 - Export the next tickets of one person as a CSV file Jira imports:
   `doc/<quarter>/exports/<yyyy>-<mm>-<dd>-<name>-sprint.csv`
@@ -325,7 +325,7 @@ root
   writes the file
 - The person is assigned at export time only, never in the ticket file
 
-## Use the design layers
+## @layers Use the design layers
 
 - Plan with the seven layers of product design; the `dna_design_layers`
   layer ships the [layers guide](layers-guide.md), one guide per layer and
@@ -346,7 +346,7 @@ root
 - Do not plan a ticket on a layer whose foundations are weak; plan the
   foundation first, or say plainly that the ticket is a bet
 
-## Plan a ticket
+## @ticket Plan a ticket
 
 Set the goal: one paragraph on what is achieved and for whom, and which
 goal of the project it serves.
@@ -365,7 +365,7 @@ Link the goals, requirements, decisions and topics the plan rests on.
 
 Let the user review the plan and revise it until they confirm it.
 
-## Write the ticket file
+## @ticket-file Write the ticket file
 
 - Create `doc/<quarter>/tickets/<date>-<id>-<title>.md`
 - Use these sections, in this order:
@@ -388,7 +388,7 @@ Let the user review the plan and revise it until they confirm it.
 - Wrap lines at 80 characters
 - Embed mermaid diagrams when a picture says more than text
 
-## Keep the plan alive
+## @plan Keep the plan alive
 
 - Update the plan when the implementation deviates from it
 - Move answered questions from `Open questions` into the plan or into a
@@ -399,7 +399,7 @@ Let the user review the plan and revise it until they confirm it.
 - Reference the plan from the blog post that closes the ticket
 - Keep the file: the plan documents why things are the way they are
 
-## Plan the time
+## @time Plan the time
 
 - A time plan is optional; make one when the user wants it or names a
   target date for the project
@@ -409,7 +409,7 @@ Let the user review the plan and revise it until they confirm it.
   Gantt chart in `doc/<quarter>/schedule.md`
 - Plan the time only on accepted requirements
 
-## Start a quarter
+## @quarter Start a quarter
 
 Start the folder of a new quarter before the first file of that quarter
 is written, e.g. `doc/2027-Q1` on the first ticket in January. Tell the
@@ -449,7 +449,7 @@ them and links to them in the older quarter, e.g.
 - Point `README.md` to the new quarter
 - Do the same in `doc/de`, if the repo keeps German copies
 
-## Plan a quarter
+## @quarter-2 Plan a quarter
 
 Start the quarter folder first, see [Start a quarter](#start-a-quarter).
 
