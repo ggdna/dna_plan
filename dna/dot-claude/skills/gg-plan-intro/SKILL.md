@@ -21,7 +21,7 @@ is planned.
 The tickets come after the requirements; the `gg` workflow creates them
 (`/gg-ticket`, if the repo has it).
 
-## Say which skill comes next
+## @skill Say which skill comes next
 
 Read `goals`, `requirements`, `schedule.md`, `team` and `reports` of the
 current quarter folder `doc/<yyyy>-Q<n>`, the newest one, and name the
@@ -41,6 +41,6 @@ next step:
 - Changes since the newest report point, or no report for the current
   quarter yet → `/gg-plan-report`
 
-## Important
+## @important Important
 
 - Only list the skills, never run one of them unasked.

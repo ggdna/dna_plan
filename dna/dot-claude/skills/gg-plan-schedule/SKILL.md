@@ -8,7 +8,7 @@ description: Plans the time of the project - asks for a target date and the capa
 Read [schedule-guide.md](../../../doc/guides/schedule-guide.md) and work
 by it.
 
-## Important
+## @important Important
 
 - Without accepted requirements, stop and offer `/gg-plan-requirements`
 - Ask for the frame one question at a time, with a default each time

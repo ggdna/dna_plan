@@ -12,7 +12,7 @@ How the people of a project are kept informed: one report per person and
 quarter collects what happened, and each point is ticked once it has been
 communicated.
 
-## Know what a report is
+## @report Know what a report is
 
 - One file per person and quarter: `doc/<quarter>/reports/<name>.md`,
   `<name>` is the first name in lower case kebab case, as in
@@ -24,7 +24,7 @@ communicated.
   the current quarter, set them up with the user first, see the
   [PM repo guide](pm-repo-guide.md#know-the-team)
 
-## Collect the points
+## @collect Collect the points
 
 - Start from the date of the newest point in the person's report; without
   a report, from the start of the quarter
@@ -49,7 +49,7 @@ communicated.
   from
 - Show the proposed points to the user; write only the ones they confirm
 
-## Write the report
+## @report-2 Write the report
 
 Use this template:
 
@@ -77,7 +77,7 @@ Use this template:
 - Never delete a point; a point that turned out wrong gets a new point
   that corrects it
 
-## Start a new quarter
+## @quarter Start a new quarter
 
 - Start the quarter folder first, see the
   [PM repo guide](pm-repo-guide.md#start-a-quarter)
@@ -90,7 +90,7 @@ Use this template:
   Leave the rest of the old file as it is
 - A person who joined during the quarter starts with an empty report
 
-## Keep both languages in step
+## @languages Keep both languages in step
 
 - If the repo keeps German copies (see the
   [PM repo guide](pm-repo-guide.md#keep-two-languages)), every report also

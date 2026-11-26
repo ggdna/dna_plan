@@ -9,7 +9,7 @@ Read [requirements-guide.md](../../../doc/guides/requirements-guide.md) and
 run the session by it. The format of goal and requirement files is in
 [pm-repo-guide.md](../../../doc/guides/pm-repo-guide.md#write-the-goals).
 
-## Important
+## @important Important
 
 - One question at a time, each with proposals and room for a free answer
 - Write only what the user confirmed
