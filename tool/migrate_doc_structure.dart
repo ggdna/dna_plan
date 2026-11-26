@@ -91,6 +91,16 @@ const _quarterKinds = {
   'concepts',
 };
 
+/// Planning files that lie loose next to the quarter folders; they move to
+/// the top of the newest quarter.
+const _quarterFiles = {
+  'plan.md',
+  'next-steps.md',
+  'milestones.md',
+  'innovation-goals.md',
+  'roadmap.md',
+};
+
 /// Folders the DNA places; never moved by this script.
 const _dnaOwned = {'guides', 'templates'};
 
@@ -227,6 +237,8 @@ void _planLanguage(String lang, String base) {
       }
     } else if (name == 'schedule.md') {
       _planFile(entry, 'pm/$lang/$newest/charts/schedule.md');
+    } else if (!isDir && _quarterFiles.contains(name)) {
+      _planFile(entry, 'pm/$lang/$newest/$name');
     } else {
       // Documentation that belongs to no quarter.
       final files = isDir ? _files(entry) : [entry];

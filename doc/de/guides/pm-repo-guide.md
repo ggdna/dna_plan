@@ -116,6 +116,9 @@ root
 - `team` — wer am Projekt arbeitet und in welchen Rollen, siehe
   [Das Team kennen](#know-the-team)
 - `tickets` — eine Plan-Datei pro Ticket
+- Planungsdateien, die das ganze Quartal betreffen, etwa `plan.md`,
+  `next-steps.md` oder `milestones.md`, liegen oben im Quartalsordner und
+  werden ins nächste Quartal kopiert, solange sie gelten
 
 ## Ziele und Anforderungen unterscheiden <a id="tell-goals-and-requirements-apart"></a>
 

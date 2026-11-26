@@ -112,6 +112,9 @@ root
 - `team` — who works on the project and in which roles, see
   [Know the team](#know-the-team)
 - `tickets` — one plan file per ticket
+- Planning files that span the quarter, such as `plan.md`,
+  `next-steps.md` or `milestones.md`, lie at the top of the quarter folder
+  and are copied into the next quarter while they hold
 
 ## @goals-requirements Tell goals and requirements apart
 
@@ -475,16 +478,16 @@ user, show what is carried over and commit it on its own as
 
 Copy what still holds from the previous quarter:
 
-| What                         | Copied into the new quarter                       |
-| ---------------------------- | ------------------------------------------------- |
-| `goals`                      | the `proposed` and `active` goals                 |
-| `requirements`               | per area, the requirements not `done`/`dropped`   |
-| `team`                       | everything                                        |
-| `architecture`               | everything                                        |
-| `concepts/ux`                | everything                                        |
-| `concepts/decisions`         | `000-index.md` without the superseded decisions   |
-| `charts/schedule.md`         | the tickets not `done`, a fresh `History`         |
-| `reports`                    | the open points, by `/gg-plan-report`             |
+| What                 | Copied into the new quarter                     |
+| -------------------- | ----------------------------------------------- |
+| `goals`              | the `proposed` and `active` goals               |
+| `requirements`       | per area, the requirements not `done`/`dropped` |
+| `team`               | everything                                      |
+| `architecture`       | everything                                      |
+| `concepts/ux`        | everything                                      |
+| `concepts/decisions` | `000-index.md` without the superseded decisions |
+| `charts/schedule.md` | the tickets not `done`, a fresh `History`       |
+| `reports`            | the open points, by `/gg-plan-report`           |
 
 Move the open tickets and bugs with `git mv` into `tickets` and `bugs`
 of the new quarter: a ticket is open while it is not `done` in the
