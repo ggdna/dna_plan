@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0xb33434e31ef0e8f0"
+      "hash": "0x416166a7236e0107"
     }
   ],
   "claude": {
@@ -57,7 +57,7 @@
     },
     {
       "path": "doc/de/guides/pm-repo-guide.md",
-      "hash": "0xf8d02a57cacd08ce"
+      "hash": "0x1d6fdd1d27588121"
     },
     {
       "path": "doc/de/guides/report-guide.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "doc/de/guides/requirements-guide.md",
-      "hash": "0x081b5f9f2ba99452"
+      "hash": "0x934f301228aa9c1b"
     },
     {
       "path": "doc/de/guides/schedule-guide.md",
@@ -97,7 +97,7 @@
     },
     {
       "path": "doc/fa/guides/pm-repo-guide.md",
-      "hash": "0xa901163b6e1a1b67"
+      "hash": "0x66760a9fc6b3337e"
     },
     {
       "path": "doc/fa/guides/report-guide.md",
@@ -105,7 +105,7 @@
     },
     {
       "path": "doc/fa/guides/requirements-guide.md",
-      "hash": "0x44cf1c2be7896090"
+      "hash": "0xb91a33045cbde1bf"
     },
     {
       "path": "doc/fa/guides/schedule-guide.md",

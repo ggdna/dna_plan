@@ -76,18 +76,18 @@ Bug-Datei.
 
 ## Nach den Qualitätsanforderungen fragen <a id="ask-for-the-quality-requirements"></a>
 
-| Bereich              | Frage nach                                             |
-| -------------------- | ------------------------------------------------------ |
-| Performance          | Antwortzeiten, Mengen, Spitzenlast                     |
-| Verfügbarkeit        | Betriebszeit, Offline-Nutzung, Wiederherstellung       |
-| Sicherheit           | Wer darf was, Authentifizierung, Angriffe              |
-| Datenschutz          | Personendaten, Einwilligung, Aufbewahrung, Recht (DSGVO) |
-| Plattformen          | Geräte, Betriebssysteme, Browser                       |
-| Barrierefreiheit     | Screenreader, Kontrast, Tastaturbedienung              |
-| Sprachen             | Sprachen, Formate von Datum, Zahlen, Währungen         |
-| Betrieb              | Deployment, Monitoring, Backups, Updates               |
-| Kompatibilität       | Schnittstellen, Datenformate, Migration alter Daten    |
-| Kosten               | Hosting, Lizenzen, Wartungsaufwand                     |
+| Bereich          | Frage nach                                               |
+| ---------------- | -------------------------------------------------------- |
+| Performance      | Antwortzeiten, Mengen, Spitzenlast                       |
+| Verfügbarkeit    | Betriebszeit, Offline-Nutzung, Wiederherstellung         |
+| Sicherheit       | Wer darf was, Authentifizierung, Angriffe                |
+| Datenschutz      | Personendaten, Einwilligung, Aufbewahrung, Recht (DSGVO) |
+| Plattformen      | Geräte, Betriebssysteme, Browser                         |
+| Barrierefreiheit | Screenreader, Kontrast, Tastaturbedienung                |
+| Sprachen         | Sprachen, Formate von Datum, Zahlen, Währungen           |
+| Betrieb          | Deployment, Monitoring, Backups, Updates                 |
+| Kompatibilität   | Schnittstellen, Datenformate, Migration alter Daten      |
+| Kosten           | Hosting, Lizenzen, Wartungsaufwand                       |
 
 ## Die Menge prüfen <a id="check-the-set"></a>
 
