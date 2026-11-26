@@ -9,7 +9,7 @@ found in the LICENSE file in the root of this package.
 # Requirements engineering guide
 
 How the requirements of a project are found together with the user. Goals
-and requirements live in the current quarter folder `doc/<quarter>`. Where
+and requirements live in the current quarter folder `pm/<lang>/<quarter>`. Where
 they are written and what a requirement looks like is in the
 [PM repo guide](pm-repo-guide.md#write-the-requirements).
 
@@ -17,7 +17,7 @@ they are written and what a requirement looks like is in the
 
 - Before the first ticket of a project
 - Before any ticket whose work no accepted requirement covers
-- When `doc/<quarter>/requirements` is missing or empty
+- When `pm/<lang>/<quarter>/requirements` is missing or empty
 - When a goal is added or changed
 - When the user asks for it
 
@@ -35,9 +35,9 @@ requirements. Bug tickets are the exception, they name their bug file.
   `proposed` only when the user wants to come back to them
 - Challenge vague answers: ask for a number, an example or a check
 - Stop after each area, sum up what was agreed and ask whether to go on
-- Talk to the user in their language; write the files in English, plus the
-  German copy if the repo keeps one, see the
-  [PM repo guide](pm-repo-guide.md#keep-two-languages)
+- Talk to the user in their language; write the files in the leading language of
+  the repo first, then in its other languages, see the
+  [PM repo guide](pm-repo-guide.md#keep-the-languages)
 
 ## @session Run the session
 
