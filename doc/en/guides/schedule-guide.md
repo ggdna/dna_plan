@@ -15,7 +15,7 @@ chart.
 ## Know what the schedule is
 
 - One file for the whole project in the current quarter:
-  `doc/<quarter>/schedule.md`; a new quarter takes over the tickets not
+  `pm/<lang>/<quarter>/charts/schedule.md`; a new quarter takes over the tickets not
   `done`, see the [PM repo guide](pm-repo-guide.md#start-a-quarter)
 - A forecast, not a promise: it shows when the work is likely done and
   whether a target date holds

@@ -5,7 +5,7 @@
       "name": "base",
       "package": "helix",
       "ecosystem": null,
-      "resolvedVersion": "1.17.0",
+      "resolvedVersion": "1.18.0",
       "via": null,
       "hash": "0x6883da335b415f9d"
     },
@@ -15,7 +15,7 @@
       "ecosystem": null,
       "resolvedVersion": null,
       "via": null,
-      "hash": "0x46b2c4afd90678a9"
+      "hash": "0xb33434e31ef0e8f0"
     }
   ],
   "claude": {
@@ -23,53 +23,93 @@
     "claudeMdFromDna": true,
     "blockHash": "0x1063339dd3c176ef"
   },
-  "baseVersion": "1.17.0",
+  "baseVersion": "1.18.0",
   "baseHash": "0x6883da335b415f9d",
   "configHash": "0x8a6cdf2ac30ae263",
   "instances": [
     {
       "path": ".claude/CLAUDE_dna_plan.md",
-      "hash": "0xa4d1e1f8532fd538"
+      "hash": "0xe23c9abbe2d85fdb"
     },
     {
       "path": ".claude/skills/gg-plan-intro/SKILL.md",
-      "hash": "0xb0c85b3b1b19481d"
+      "hash": "0x2da6ccdbdfa3c774"
     },
     {
       "path": ".claude/skills/gg-plan-jira-export/SKILL.md",
-      "hash": "0x76f3576589371dbf"
+      "hash": "0x65196b21a75ba279"
     },
     {
       "path": ".claude/skills/gg-plan-report/SKILL.md",
-      "hash": "0xf382db9aa2788919"
+      "hash": "0xb188a12c8e8c0dd8"
     },
     {
       "path": ".claude/skills/gg-plan-requirements/SKILL.md",
-      "hash": "0x7d8b3925649e33f6"
+      "hash": "0x5fde70bb02fda14b"
     },
     {
       "path": ".claude/skills/gg-plan-schedule/SKILL.md",
-      "hash": "0xc1e4d3241259e21f"
+      "hash": "0xc969af29565ca6b2"
     },
     {
-      "path": "doc/guides/jira-export-guide.md",
-      "hash": "0x11640767b50768fe"
+      "path": "doc/de/guides/jira-export-guide.md",
+      "hash": "0x8aad4796ee95aefc"
     },
     {
-      "path": "doc/guides/pm-repo-guide.md",
-      "hash": "0x2cb57216f6c3176f"
+      "path": "doc/de/guides/pm-repo-guide.md",
+      "hash": "0xf8d02a57cacd08ce"
     },
     {
-      "path": "doc/guides/report-guide.md",
-      "hash": "0xb70d317b3545e4d2"
+      "path": "doc/de/guides/report-guide.md",
+      "hash": "0xa1f1434432844dc3"
     },
     {
-      "path": "doc/guides/requirements-guide.md",
-      "hash": "0xd5c8839dc3a913a1"
+      "path": "doc/de/guides/requirements-guide.md",
+      "hash": "0x081b5f9f2ba99452"
     },
     {
-      "path": "doc/guides/schedule-guide.md",
-      "hash": "0xd9b6da41ba2aa277"
+      "path": "doc/de/guides/schedule-guide.md",
+      "hash": "0x08519f3511443850"
+    },
+    {
+      "path": "doc/en/guides/jira-export-guide.md",
+      "hash": "0xf193cb083b9ea9db"
+    },
+    {
+      "path": "doc/en/guides/pm-repo-guide.md",
+      "hash": "0xb042c808bac290ce"
+    },
+    {
+      "path": "doc/en/guides/report-guide.md",
+      "hash": "0x683415cf5b6870db"
+    },
+    {
+      "path": "doc/en/guides/requirements-guide.md",
+      "hash": "0x6e3bc2a9d45eb136"
+    },
+    {
+      "path": "doc/en/guides/schedule-guide.md",
+      "hash": "0x7c4edaa382ec7cf9"
+    },
+    {
+      "path": "doc/fa/guides/jira-export-guide.md",
+      "hash": "0x091f03b8be44ae2e"
+    },
+    {
+      "path": "doc/fa/guides/pm-repo-guide.md",
+      "hash": "0xa901163b6e1a1b67"
+    },
+    {
+      "path": "doc/fa/guides/report-guide.md",
+      "hash": "0x2384dea89109f761"
+    },
+    {
+      "path": "doc/fa/guides/requirements-guide.md",
+      "hash": "0x44cf1c2be7896090"
+    },
+    {
+      "path": "doc/fa/guides/schedule-guide.md",
+      "hash": "0xf3f2d9ee28a92072"
     }
   ]
 }
