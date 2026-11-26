@@ -339,11 +339,12 @@ String _mapTarget(String target, String oldPath, String newPath) {
   final pathPart = hash >= 0 ? target.substring(0, hash) : target;
   final anchor = hash >= 0 ? target.substring(hash) : '';
   if (pathPart.isEmpty) return target;
-  final oldAbs = _normalize('${_dir(oldPath)}/$pathPart');
+  final encoded = pathPart.contains('%');
+  final oldAbs = _normalize('${_dir(oldPath)}/${_decode(pathPart)}');
   final newAbs = _mapPath(oldAbs);
   final rel = _relative(newAbs, _dir(newPath));
   if (newAbs == oldAbs && _dir(oldPath) == _dir(newPath)) return target;
-  return '$rel$anchor';
+  return '${encoded ? rel.replaceAll(' ', '%20') : rel}$anchor';
 }
 
 /// Where a file or folder of the old layout lives now.
@@ -396,7 +397,7 @@ Set<String> _deadLinks(List<String> files) {
       if (_isExternal(target)) continue;
       final pathPart = target.split('#').first;
       if (pathPart.isEmpty) continue;
-      var abs = _normalize('${_dir(f)}/$pathPart');
+      final abs = _normalize('${_dir(f)}/${_decode(pathPart)}');
       // Links into the DNA folders count as alive at either place.
       final p = '$_root/$abs';
       if (File(p).existsSync() || Directory(p).existsSync()) continue;
@@ -419,6 +420,15 @@ Set<String> _deadLinks(List<String> files) {
 
 String _stripCode(String text) =>
     text.replaceAll(_fenceRe, '').replaceAll(RegExp(r'`[^`\n]*`'), '');
+
+/// [path] with its percent escapes, e.g. `%20`, decoded.
+String _decode(String path) {
+  try {
+    return Uri.decodeComponent(path);
+  } on ArgumentError {
+    return path;
+  }
+}
 
 bool _isExternal(String t) =>
     t.startsWith('http:') ||
