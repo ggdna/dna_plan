@@ -1,9 +1,11 @@
 # Changelog
 
+## 4.1.0 - 2026-11-27
+
 ## 3.0.1 - 2026-11-26
 
 - Move loose planning files like plan.md, next-steps.md and milestones.md
-  into the quarter folder
+into the quarter folder
 
 ## 3.0.0 - 2026-11-26
 
