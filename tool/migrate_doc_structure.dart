@@ -20,8 +20,10 @@
 // left alone. Relative markdown links are rewritten, and the run fails when
 // it turns a working link into a dead one.
 //
-// A code repo keeps only its blog in `pm/`: its architecture, decisions and
-// the other planning folders stay documentation in `doc/<lang>/`. A repo
+// A code repo keeps only its blog in `pm/`: its loose architecture,
+// decisions and other planning folders stay documentation in `doc/<lang>/`.
+// Quarter folders `doc/<yyyy>-Q<n>` hold planning and move to `pm/` in every
+// repo. A repo
 // whose name ends in `_pm` or `-pm` is a PM repo; `--pm` or `--code` decide
 // for any other name.
 //
