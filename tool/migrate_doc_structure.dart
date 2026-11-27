@@ -19,8 +19,9 @@
 // `doc/<lang>/`; `doc/guides` and `doc/templates` belong to the DNA and are
 // left alone. Relative markdown links are rewritten, and the run fails when
 // it turns a working link into a dead one. Paths to moved files and folders
-// in code and config files, like `'doc/svg/x.svg'` in a test, are rewritten
-// as well.
+// in code and config files, like `'doc/svg/x.svg'` in a test, and in the
+// text of markdown files, like `doc/claude/history.md` in CLAUDE.md, are
+// rewritten as well; files the DNA generated are left to the DNA.
 //
 // A code repo keeps only its blog in `pm/`: its loose architecture,
 // decisions and other planning folders stay documentation in `doc/<lang>/`.
@@ -296,9 +297,9 @@ Map<String, String> _pathMap() {
   };
 }
 
-/// Rewrites the paths of moved files and folders in the code and config
-/// files git tracks outside `doc`, `pm` and `dna`, and returns the files it
-/// changed — in a dry run the files it would change.
+/// Rewrites the paths of moved files and folders in the code, config and
+/// markdown files, and returns the files it changed — in a dry run the
+/// files it would change.
 List<String> _rewriteCodePaths() {
   final map = _pathMap();
   if (map.isEmpty) return [];
@@ -318,12 +319,21 @@ List<String> _rewriteCodePaths() {
     multiLine: true,
   );
   final changed = <String>[];
-  for (final f in (ls.stdout as String).split('\u0000')) {
-    final path = f.trim();
-    if (path.isEmpty ||
-        RegExp(r'^(doc|pm|dna|node_modules)/').hasMatch(path) ||
-        _keepPaths.contains(_base(path)) ||
-        !_codeExtensions.any(path.toLowerCase().endsWith)) {
+  // Code and config files outside doc, pm and dna, plus every markdown file
+  // at its place after the move: CLAUDE.md, READMEs and the docs name paths
+  // in backticks and text, not only in links.
+  final paths = <String>{
+    for (final f in (ls.stdout as String).split('\u0000'))
+      if (f.trim().isNotEmpty &&
+          !RegExp(r'^(doc|pm|dna|node_modules)/').hasMatch(f.trim()) &&
+          (_codeExtensions.any(f.trim().toLowerCase().endsWith) ||
+              f.trim().toLowerCase().endsWith('.md')))
+        f.trim(),
+    if (!_dryRun) ..._allMarkdown(),
+  };
+  for (final path in paths) {
+    // What the DNA generated stays as it is: the next DNA build replaces it.
+    if (_keepPaths.contains(_base(path)) || _dnaInstances.contains(path)) {
       continue;
     }
     final file = File('$_root/$path');
