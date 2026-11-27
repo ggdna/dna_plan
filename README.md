@@ -42,7 +42,8 @@ same name:
 this structure: run `dart run <path>/tool/migrate_doc_structure.dart` in
 its root, `--dry-run` first, and read the README afterwards: link texts
 that name an old path keep their text. Paths to moved files in code and
-config files, like `'doc/svg/x.svg'` in a test, are rewritten too. A code repo keeps only its blog in
+config files, like `'doc/svg/x.svg'` in a test, and in the text of
+markdown files, like CLAUDE.md, are rewritten too. A code repo keeps only its blog in
 `pm/`; a repo whose name ends in `_pm` or `-pm` counts as PM repo, `--pm`
 or `--code` decide for any other name.
 

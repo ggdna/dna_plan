@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.3.0 - 2026-11-27
+
+- Rewrite paths named in the text of markdown files, like CLAUDE.md, when
+  migrating; leave the files the DNA generated to the DNA
+
 ## 3.2.0 - 2026-11-27
 
 - Rewrite the paths of moved files and folders in code and config files
