@@ -20,9 +20,14 @@
 // left alone. Relative markdown links are rewritten, and the run fails when
 // it turns a working link into a dead one.
 //
+// A code repo keeps only its blog in `pm/`: its architecture, decisions and
+// the other planning folders stay documentation in `doc/<lang>/`. A repo
+// whose name ends in `_pm` or `-pm` is a PM repo; `--pm` or `--code` decide
+// for any other name.
+//
 // Run it in the root of a repo:
 //
-//   dart run <path>/tool/migrate_doc_structure.dart [--dry-run]
+//   dart run <path>/tool/migrate_doc_structure.dart [--dry-run] [--pm|--code]
 //
 // A second run changes nothing. Read the README afterwards: link texts
 // that name an old path keep their text, tables may need formatting.
@@ -107,6 +112,13 @@ const _dnaOwned = {'guides', 'templates'};
 late final String _root;
 late final bool _dryRun;
 
+/// Whether the repo is a PM repo; a code repo keeps only its blog in `pm/`.
+late final bool _isPmRepo;
+
+/// Whether the loose folder [name] of `doc` moves into a quarter.
+bool _movesToQuarter(String name) =>
+    _quarterKinds.contains(name) && (_isPmRepo || name == 'blog');
+
 /// old path (relative, posix) -> new path
 final _moves = <String, String>{};
 final _warnings = <String>[];
@@ -114,6 +126,9 @@ final _warnings = <String>[];
 void main(List<String> args) {
   _dryRun = args.contains('--dry-run');
   _root = Directory.current.path;
+  _isPmRepo =
+      args.contains('--pm') ||
+      (!args.contains('--code') && RegExp(r'[_-]pm$').hasMatch(_base(_root)));
   if (!Directory('$_root/doc').existsSync()) {
     print('No doc folder — nothing to do.');
     return;
@@ -226,7 +241,7 @@ void _planLanguage(String lang, String base) {
     if (base == 'doc' && _isLang(name)) continue; // other languages
     if (base == 'doc' && name == 'ticket-counter.json') continue;
     final isDir = Directory('$_root/$entry').existsSync();
-    if (isDir && _quarterKinds.contains(name)) {
+    if (isDir && _movesToQuarter(name)) {
       for (final f in _files(entry)) {
         final rest = f.substring('$entry/'.length);
         final q = _quarterFor(name, rest, newest);
@@ -235,9 +250,9 @@ void _planLanguage(String lang, String base) {
           'pm/$lang/$q/${_inQuarter('$name/${_stripQuarter(name, rest)}')}',
         );
       }
-    } else if (name == 'schedule.md') {
+    } else if (_isPmRepo && name == 'schedule.md') {
       _planFile(entry, 'pm/$lang/$newest/charts/schedule.md');
-    } else if (!isDir && _quarterFiles.contains(name)) {
+    } else if (_isPmRepo && !isDir && _quarterFiles.contains(name)) {
       _planFile(entry, 'pm/$lang/$newest/$name');
     } else {
       // Documentation that belongs to no quarter.

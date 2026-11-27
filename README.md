@@ -41,7 +41,9 @@ same name:
 `tool/migrate_doc_structure.dart` moves the documentation of a repo into
 this structure: run `dart run <path>/tool/migrate_doc_structure.dart` in
 its root, `--dry-run` first, and read the README afterwards: link texts
-that name an old path keep their text.
+that name an old path keep their text. A code repo keeps only its blog in
+`pm/`; a repo whose name ends in `_pm` or `-pm` counts as PM repo, `--pm`
+or `--code` decide for any other name.
 
 The guide plans with the seven layers of product design. Their guides and
 the `/layers-*` skills live in
