@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.4.0 - 2026-11-27
+
+- Point links to a folder whose files moved apart, like doc/de with only
+  blog posts, to the folder they landed in
+
 ## 3.3.0 - 2026-11-27
 
 - Rewrite paths named in the text of markdown files, like CLAUDE.md, when
