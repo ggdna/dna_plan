@@ -1,9 +1,15 @@
 # Changelog
 
+## 3.1.0 - 2026-11-27
+
+- Keep only the blog of a code repo in pm/ when migrating: loose
+  architecture, decisions and other planning folders stay in doc/<lang>/
+- Document that quarter folders move to pm/ in every repo
+
 ## 3.0.1 - 2026-11-26
 
 - Move loose planning files like plan.md, next-steps.md and milestones.md
-  into the quarter folder
+into the quarter folder
 
 ## 3.0.0 - 2026-11-26
 
