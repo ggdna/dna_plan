@@ -18,7 +18,9 @@
 // `schedule.md` moves to `charts/`. Everything else of `doc` moves to
 // `doc/<lang>/`; `doc/guides` and `doc/templates` belong to the DNA and are
 // left alone. Relative markdown links are rewritten, and the run fails when
-// it turns a working link into a dead one.
+// it turns a working link into a dead one. Paths to moved files and folders
+// in code and config files, like `'doc/svg/x.svg'` in a test, are rewritten
+// as well.
 //
 // A code repo keeps only its blog in `pm/`: its loose architecture,
 // decisions and other planning folders stay documentation in `doc/<lang>/`.
@@ -176,6 +178,9 @@ void main(List<String> args) {
     for (final e in _moves.entries) {
       print('${e.key} -> ${e.value}');
     }
+    for (final f in _rewriteCodePaths()) {
+      print('Would rewrite the paths in $f');
+    }
     _printWarnings();
     print('Would move ${_moves.length} files.');
     return;
@@ -201,6 +206,7 @@ void main(List<String> args) {
   }
 
   _rewriteDnaConfig();
+  final code = _rewriteCodePaths();
 
   final deadAfter = _deadLinks(_allMarkdown());
   final newDead = deadAfter.difference(
@@ -208,6 +214,9 @@ void main(List<String> args) {
   );
   _printWarnings();
   print('Moved ${_moves.length} files, rewrote links in $rewritten files.');
+  for (final f in code) {
+    print('Rewrote the paths in $f');
+  }
   if (newDead.isNotEmpty) {
     stderr.writeln('Dead links after the move:');
     for (final d in newDead.toList()..sort()) {
@@ -215,6 +224,111 @@ void main(List<String> args) {
     }
     exitCode = 1;
   }
+}
+
+// .............................................................................
+// Paths in code
+
+/// Extensions of the code and config files whose paths are rewritten.
+const _codeExtensions = {
+  '.dart',
+  '.ts',
+  '.tsx',
+  '.js',
+  '.mjs',
+  '.cjs',
+  '.json',
+  '.jsonc',
+  '.yaml',
+  '.yml',
+  '.sh',
+  '.ps1',
+  '.py',
+  '.html',
+  '.css',
+  '.toml',
+  '.txt',
+};
+
+/// Files that never get their paths rewritten: history and lock files.
+const _keepPaths = {
+  'CHANGELOG.md',
+  'pubspec.lock',
+  'pnpm-lock.yaml',
+  'package-lock.json',
+  'yarn.lock',
+};
+
+/// The old paths of the moved files and folders and their new ones. A folder
+/// counts when everything below it moved to one new folder; a folder that
+/// keeps a file, e.g. of the DNA, is left out.
+Map<String, String> _pathMap() {
+  final dirs = <String, String?>{};
+  for (final e in _moves.entries) {
+    final from = e.key.split('/');
+    final to = e.value.split('/');
+    var same = 0;
+    while (same < from.length &&
+        same < to.length &&
+        from[from.length - 1 - same] == to[to.length - 1 - same]) {
+      same++;
+    }
+    for (var i = 1; i < from.length - 1; i++) {
+      final oldDir = from.sublist(0, from.length - i).join('/');
+      final newDir = i < same ? to.sublist(0, to.length - i).join('/') : null;
+      if (dirs.containsKey(oldDir) && dirs[oldDir] != newDir) {
+        dirs[oldDir] = null;
+      } else {
+        dirs.putIfAbsent(oldDir, () => newDir);
+      }
+    }
+  }
+  final stillThere = _dryRun
+      ? (String d) => _files(d).any((f) => !_moves.containsKey(f))
+      : (String d) => Directory('$_root/$d').existsSync();
+  return {
+    for (final e in dirs.entries)
+      if (e.value != null && !stillThere(e.key)) e.key: e.value!,
+    ..._moves,
+  };
+}
+
+/// Rewrites the paths of moved files and folders in the code and config
+/// files git tracks outside `doc`, `pm` and `dna`, and returns the files it
+/// changed — in a dry run the files it would change.
+List<String> _rewriteCodePaths() {
+  final map = _pathMap();
+  if (map.isEmpty) return [];
+  final ls = Process.runSync('git', ['ls-files'], workingDirectory: _root);
+  if (ls.exitCode != 0) return [];
+  final olds = map.keys.toList()..sort((a, b) => b.length - a.length);
+  final pattern = RegExp(
+    '(?<![A-Za-z0-9_\\-])(${olds.map(RegExp.escape).join('|')})'
+    '(?![A-Za-z0-9_.\\-])',
+  );
+  final changed = <String>[];
+  for (final f in (ls.stdout as String).split('\n')) {
+    final path = f.trim();
+    if (path.isEmpty ||
+        RegExp(r'^(doc|pm|dna|node_modules)/').hasMatch(path) ||
+        _keepPaths.contains(_base(path)) ||
+        !_codeExtensions.any(path.toLowerCase().endsWith)) {
+      continue;
+    }
+    final file = File('$_root/$path');
+    if (!file.existsSync()) continue;
+    final String text;
+    try {
+      text = file.readAsStringSync();
+    } on FileSystemException {
+      continue; // not UTF-8
+    }
+    final rewritten = text.replaceAllMapped(pattern, (m) => map[m[1]]!);
+    if (rewritten == text) continue;
+    changed.add(path);
+    if (!_dryRun) file.writeAsStringSync(rewritten);
+  }
+  return changed;
 }
 
 // .............................................................................
