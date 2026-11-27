@@ -251,6 +251,12 @@ const _codeExtensions = {
   '.txt',
 };
 
+/// Text that ends where a markdown link target or reference starts, maybe
+/// behind `./` or `../`.
+final _linkTargetBefore = RegExp(
+  r'(\]\(|^[ ]{0,3}\[[^\]\n]+\]:[ \t]+|\bsrc=")(?:\.\.?/)*$',
+);
+
 /// Files that never get their paths rewritten: history and lock files.
 const _keepPaths = {
   'CHANGELOG.md',
@@ -345,7 +351,15 @@ List<String> _rewriteCodePaths() {
     } on FormatException {
       continue; // not UTF-8
     }
-    final rewritten = text.replaceAllMapped(pattern, (m) => map[m[1]]!);
+    final markdown = path.toLowerCase().endsWith('.md');
+    final rewritten = text.replaceAllMapped(pattern, (m) {
+      // The target of a markdown link is relative to its file and was
+      // rewritten with the links already.
+      if (markdown && _linkTargetBefore.hasMatch(text.substring(0, m.start))) {
+        return m[0]!;
+      }
+      return map[m[1]]!;
+    });
     if (rewritten == text) continue;
     changed.add(path);
     if (_dryRun) continue;

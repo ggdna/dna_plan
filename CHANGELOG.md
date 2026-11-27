@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.5.0 - 2026-11-27
+
+- Leave the targets of markdown links to the link rewrite when rewriting
+  paths in markdown text
+
 ## 3.4.0 - 2026-11-27
 
 - Point links to a folder whose files moved apart, like doc/de with only
