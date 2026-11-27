@@ -286,9 +286,12 @@ Map<String, String> _pathMap() {
   final stillThere = _dryRun
       ? (String d) => _files(d).any((f) => !_moves.containsKey(f))
       : (String d) => Directory('$_root/$d').existsSync();
+  // A folder that moves into a quarter is left out: code that builds paths
+  // below it would put new files into that one quarter forever.
   return {
     for (final e in dirs.entries)
-      if (e.value != null && !stillThere(e.key)) e.key: e.value!,
+      if (e.value != null && !e.value!.startsWith('pm/') && !stillThere(e.key))
+        e.key: e.value!,
     ..._moves,
   };
 }
@@ -299,15 +302,23 @@ Map<String, String> _pathMap() {
 List<String> _rewriteCodePaths() {
   final map = _pathMap();
   if (map.isEmpty) return [];
-  final ls = Process.runSync('git', ['ls-files'], workingDirectory: _root);
+  final ls = Process.runSync('git', [
+    'ls-files',
+    '-z',
+  ], workingDirectory: _root);
   if (ls.exitCode != 0) return [];
   final olds = map.keys.toList()..sort((a, b) => b.length - a.length);
+  // A path starts the text or follows a quote, a bracket, whitespace or
+  // `=`/`,`, optionally behind `./` or `../`; `x/doc/…` or a URL is
+  // another path. It ends before anything that cannot continue a name.
   final pattern = RegExp(
-    '(?<![A-Za-z0-9_\\-])(${olds.map(RegExp.escape).join('|')})'
-    '(?![A-Za-z0-9_.\\-])',
+    '(?<=(?:^|[\\s\'"`(\\[{=,])(?:\\.\\.?/)*)'
+    '(${olds.map(RegExp.escape).join('|')})'
+    '(?![A-Za-z0-9_\\-]|\\.[A-Za-z0-9_])',
+    multiLine: true,
   );
   final changed = <String>[];
-  for (final f in (ls.stdout as String).split('\n')) {
+  for (final f in (ls.stdout as String).split('\u0000')) {
     final path = f.trim();
     if (path.isEmpty ||
         RegExp(r'^(doc|pm|dna|node_modules)/').hasMatch(path) ||
@@ -317,16 +328,27 @@ List<String> _rewriteCodePaths() {
     }
     final file = File('$_root/$path');
     if (!file.existsSync()) continue;
+    final bytes = file.readAsBytesSync();
     final String text;
     try {
-      text = file.readAsStringSync();
-    } on FileSystemException {
+      text = utf8.decode(bytes);
+    } on FormatException {
       continue; // not UTF-8
     }
     final rewritten = text.replaceAllMapped(pattern, (m) => map[m[1]]!);
     if (rewritten == text) continue;
     changed.add(path);
-    if (!_dryRun) file.writeAsStringSync(rewritten);
+    if (_dryRun) continue;
+    // Decoding drops a byte order mark; it is written back.
+    final bom =
+        bytes.length >= 3 &&
+        bytes[0] == 0xEF &&
+        bytes[1] == 0xBB &&
+        bytes[2] == 0xBF;
+    file.writeAsBytesSync([
+      if (bom) ...[0xEF, 0xBB, 0xBF],
+      ...utf8.encode(rewritten),
+    ]);
   }
   return changed;
 }
