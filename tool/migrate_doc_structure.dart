@@ -579,16 +579,18 @@ String _mapTarget(String target, String oldPath, String newPath) {
 String _mapPath(String oldAbs) {
   final direct = _moves[oldAbs];
   if (direct != null) return direct;
-  // A folder: the common new folder of the files below it.
-  final below = _moves.entries
-      .where((e) => e.key.startsWith('$oldAbs/'))
-      .map(
-        (e) => e.value.substring(
-          0,
-          e.value.length - (e.key.length - oldAbs.length),
-        ),
-      )
-      .toSet();
+  // A folder: the common new folder of the files below it. A file that kept
+  // its path below the folder gives the folder's new place; one that moved
+  // elsewhere, like a blog post into a quarter, gives the folder it landed
+  // in.
+  final below = _moves.entries.where((e) => e.key.startsWith('$oldAbs/')).map((
+    e,
+  ) {
+    final rest = e.key.substring(oldAbs.length);
+    return e.value.endsWith(rest)
+        ? e.value.substring(0, e.value.length - rest.length)
+        : _dir(e.value);
+  }).toSet();
   if (below.length == 1) return below.single;
   if (below.length > 1) {
     final parts = below.map((b) => b.split('/')).toList();
