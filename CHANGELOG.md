@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.2.0 - 2026-11-27
+
+- Rewrite the paths of moved files and folders in code and config files
+  when migrating the doc structure
+
 ## 3.1.0 - 2026-11-27
 
 - Keep only the blog of a code repo in pm/ when migrating: loose
